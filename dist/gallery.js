@@ -23,14 +23,13 @@ function isGalleryFolded() {
 
 function sizeMobileGallery() {
   if (desktopLayout.matches || !exhibition.clientWidth) return;
-  const foldHeight = 1;
-  const foldGap = 1;
+  const foldWidth = 1;
+  const foldGap = 0;
   const width = exhibition.clientWidth;
-  const openHeight = width * 1.5;
-  collection.style.setProperty('--mobile-open-width', width + 'px');
-  collection.style.setProperty('--mobile-open-height', openHeight + 'px');
-  collection.style.setProperty('--mobile-gallery-height', (openHeight + (groups.length - 1) * (foldHeight + foldGap)) + 'px');
-  collection.style.setProperty('--mobile-fold-height', foldHeight + 'px');
+  const openWidth = Math.max(1, width - (groups.length - 1) * (foldWidth + foldGap));
+  collection.style.setProperty('--mobile-open-width', openWidth + 'px');
+  collection.style.setProperty('--mobile-gallery-height', openWidth * 1.5 + 'px');
+  collection.style.setProperty('--mobile-fold-width', foldWidth + 'px');
   collection.style.setProperty('--mobile-fold-gap', foldGap + 'px');
 }
 

@@ -163,7 +163,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* A vertical accordion on phones; the original desktop gallery below. */
+/* An edge-to-edge accordion on phones; the original desktop gallery below. */
 .desktop-label { display: none; }
 .mobile-label { display: inline; }
 .gallery-mode-controls { display: none; }
@@ -185,40 +185,38 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   body[data-page="works"] .site-main { max-width: none; padding-inline: 0; }
   .exhibition-heading, .exhibition-toolbar { padding-inline: 16px; }
   .collection {
-    --mobile-open-width: 100vw;
-    --mobile-open-height: calc(var(--mobile-open-width) * 1.5);
-    --mobile-gallery-height: calc(var(--mobile-open-height) + 46px);
-    --mobile-fold-height: 1px;
-    --mobile-fold-gap: 1px;
+    --mobile-open-width: calc(100vw - 23px);
+    --mobile-gallery-height: calc(var(--mobile-open-width) * 1.5);
+    --mobile-fold-width: 1px;
+    --mobile-fold-gap: 0px;
   }
-  .exhibition { flex-direction: column; height: auto; overflow: visible; scroll-snap-type: none; transition: height 700ms ease; }
+  .exhibition { flex-direction: row; height: var(--mobile-gallery-height); overflow-y: hidden; scroll-snap-type: none; transition: height 700ms ease; }
   .exhibition .series {
-    --pane-height: var(--mobile-open-height);
+    --pane-width: var(--mobile-open-width);
     position: relative;
     flex: 0 0 auto;
-    width: var(--mobile-open-width);
-    height: var(--pane-height);
+    width: var(--pane-width);
+    height: var(--mobile-gallery-height);
     overflow: hidden;
     scroll-snap-align: none;
     transition: width 700ms ease, height 700ms ease;
   }
   .js .collection[data-mode="collapsed"] .exhibition {
-    height: var(--mobile-gallery-height);
     gap: var(--mobile-fold-gap);
     overflow: hidden;
     touch-action: pan-y pinch-zoom;
   }
-  .js .collection[data-mode="collapsed"] .series { --pane-height: var(--mobile-fold-height); }
-  .js .collection[data-mode="collapsed"] .series.active { --pane-height: var(--mobile-open-height); }
+  .js .collection[data-mode="collapsed"] .series { --pane-width: var(--mobile-fold-width); }
+  .js .collection[data-mode="collapsed"] .series.active { --pane-width: var(--mobile-open-width); }
   .quartet {
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--pane-height);
-    height: var(--mobile-open-width);
+    width: var(--mobile-gallery-height);
+    height: var(--pane-width);
     grid-template-rows: repeat(2, minmax(0, 1fr));
     transform-origin: top left;
-    transform: translateX(var(--mobile-open-width)) rotate(90deg);
+    transform: translateX(var(--pane-width)) rotate(90deg);
     transition: width 700ms ease, height 700ms ease, transform 700ms ease;
   }
   .quartet .photo-trigger { width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; }
@@ -226,6 +224,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   .quartet img { object-fit: fill; }
   .collection[data-mode="collapsed"] .series:not(.active) .photo-failed { display: none !important; }
   .exhibition-controls { flex-wrap: wrap; gap: 0 16px; }
+  .lightbox-original { display: none; }
 }
 @media (min-width: 900px) {
   :root { --ink: #000; --serif: Merriweather, Georgia, "Times New Roman", "Microsoft JhengHei", serif; }
