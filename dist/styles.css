@@ -128,7 +128,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   .masthead { padding-inline: 16px; }
   .header-nav { gap: 24px; }
   .exhibition-heading { display: block; }
-  .about { gap: 18px; }
+  .about, .contact { gap: 18px; }
   .self-intro { font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -154,8 +154,15 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .about { padding-top: 28px; padding-bottom: 48px; }
 .contact { padding-top: 24px; }
 @media (max-width: 899px) {
+  body[data-page="home"] .site-main,
   body[data-page="works"] .site-main { max-width: none; padding-inline: 0; }
   .exhibition-heading, .exhibition-toolbar { padding-inline: 16px; }
+  .collection h2 { font: 400 12px/1.5 var(--sans); letter-spacing: normal; }
+  .contact { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; padding-top: 28px; padding-bottom: 48px; }
+  .contact-photo { width: 100%; max-width: 280px; height: auto; margin-top: 0; }
+  .contact-links { min-width: 0; }
+  .contact-links a { flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; padding-block: 8px; }
+  .contact-links a span:last-child { text-align: left; }
   .collection {
     --mobile-open-width: calc(100vw - 23px);
     --mobile-gallery-height: calc(var(--mobile-open-width) * 1.5);
