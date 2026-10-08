@@ -12,14 +12,29 @@ const desktopLayout = window.matchMedia('(min-width: 900px)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let activeGroupIndex = 0;
 let galleryMode = 'collapsed';
-let gallerySpacing = 'separated';
 let activePage = '';
 let pendingFrame = 0;
+let gallerySwipeStart = null;
+let suppressGalleryClickUntil = 0;
+
+function sizeMobileGallery() {
+  if (desktopLayout.matches || !exhibition.clientWidth) return;
+  const foldWidth = 1;
+  const foldGap = 1;
+  const width = exhibition.clientWidth;
+  const openWidth = galleryMode === 'collapsed'
+    ? Math.max(1, width - (groups.length - 1) * (foldWidth + foldGap))
+    : width;
+  collection.style.setProperty('--mobile-open-width', openWidth + 'px');
+  collection.style.setProperty('--mobile-gallery-height', openWidth * 1.5 + 'px');
+  collection.style.setProperty('--mobile-fold-width', foldWidth + 'px');
+  collection.style.setProperty('--mobile-fold-gap', foldGap + 'px');
+}
 
 function paintGallery() {
-  const folded = desktopLayout.matches && galleryMode === 'collapsed';
+  const folded = galleryMode === 'collapsed';
   collection.dataset.mode = galleryMode;
-  collection.dataset.spacing = gallerySpacing;
+  sizeMobileGallery();
   groups.forEach((group, index) => {
     group.classList.toggle('active', index === activeGroupIndex);
     group.querySelectorAll('[data-photo]').forEach(button => {
@@ -33,11 +48,7 @@ function paintGallery() {
   });
   modeButtons.forEach(button => {
     const action = button.dataset.galleryMode;
-    button.hidden = !desktopLayout.matches ||
-      (action === 'expand' ? galleryMode !== 'collapsed' :
-       action === 'collapse' ? galleryMode !== 'expanded' :
-       action === 'adjoin' ? galleryMode !== 'expanded' || gallerySpacing === 'adjoined' :
-       galleryMode !== 'expanded' || gallerySpacing === 'separated');
+    button.hidden = action === 'expand' ? galleryMode !== 'collapsed' : galleryMode !== 'expanded';
   });
 }
 
@@ -50,27 +61,23 @@ function selectGroup(index, scroll = true) {
     const left = galleryMode === 'collapsed' ? 0 : groups[activeGroupIndex].offsetLeft - groups[0].offsetLeft;
     window.scrollTo({ left, top: window.scrollY, behavior });
   } else {
-    exhibition.scrollTo({ left: groups[activeGroupIndex].offsetLeft - groups[0].offsetLeft, behavior });
+    const left = galleryMode === 'collapsed' ? 0 : groups[activeGroupIndex].offsetLeft - groups[0].offsetLeft;
+    exhibition.scrollTo({ left, behavior });
   }
 }
 
 function changeGalleryMode(action) {
-  if (!desktopLayout.matches) return;
-  if (action === 'expand') {
-    galleryMode = 'expanded';
-    gallerySpacing = 'separated';
-  } else if (action === 'collapse') {
-    galleryMode = 'collapsed';
-    activeGroupIndex = 0;
-  } else {
-    gallerySpacing = action === 'adjoin' ? 'adjoined' : 'separated';
-  }
+  if (action !== 'expand' && action !== 'collapse') return;
+  galleryMode = action === 'expand' ? 'expanded' : 'collapsed';
+  activeGroupIndex = 0;
+  gallerySwipeStart = null;
   paintGallery();
   window.scrollTo({ left: 0, top: window.scrollY, behavior: 'auto' });
+  exhibition.scrollTo({ left: 0, behavior: 'auto' });
 }
 
 function updateGalleryPosition() {
-  if (activePage !== 'works' || (desktopLayout.matches && galleryMode === 'collapsed')) return;
+  if (activePage !== 'works' || galleryMode === 'collapsed') return;
   const position = desktopLayout.matches ? window.scrollX : exhibition.scrollLeft;
   const origin = groups[0].offsetLeft;
   let index = 0, closest = Infinity;
@@ -119,9 +126,30 @@ document.querySelectorAll('.header-nav a, .wordmark, .skip-link').forEach(link =
   });
 });
 groupButtons.forEach(button => button.addEventListener('click', () => selectGroup(activeGroupIndex + Number(button.dataset.step))));
-modeButtons.forEach(button => button.addEventListener('click', () => changeGalleryMode(button.dataset.galleryMode)));
+modeButtons.forEach(button => button.addEventListener('click', () => {
+  changeGalleryMode(button.dataset.galleryMode);
+  modeButtons.find(control => !control.hidden)?.focus({ preventScroll: true });
+}));
 exhibition.addEventListener('scroll', queueGalleryPosition, { passive: true });
 window.addEventListener('scroll', queueGalleryPosition, { passive: true });
+exhibition.addEventListener('touchstart', event => {
+  gallerySwipeStart = !desktopLayout.matches && galleryMode === 'collapsed' && event.touches.length === 1
+    ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+}, { passive: true });
+exhibition.addEventListener('touchmove', event => {
+  if (event.touches.length !== 1) gallerySwipeStart = null;
+}, { passive: true });
+exhibition.addEventListener('touchend', event => {
+  const start = gallerySwipeStart;
+  gallerySwipeStart = null;
+  if (!start || desktopLayout.matches || galleryMode !== 'collapsed' || event.changedTouches.length !== 1 || event.touches.length) return;
+  const dx = event.changedTouches[0].clientX - start.x;
+  const dy = event.changedTouches[0].clientY - start.y;
+  if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+  suppressGalleryClickUntil = performance.now() + 400;
+  selectGroup(activeGroupIndex + (dx < 0 ? 1 : -1));
+}, { passive: true });
+exhibition.addEventListener('touchcancel', () => { gallerySwipeStart = null; }, { passive: true });
 exhibition.addEventListener('keydown', event => {
   if (event.target !== exhibition) return;
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -134,7 +162,10 @@ desktopLayout.addEventListener('change', () => {
   if (activePage === 'works') requestAnimationFrame(() => selectGroup(activeGroupIndex));
 });
 window.addEventListener('hashchange', () => showPage(window.location.hash));
-window.addEventListener('resize', queueGalleryPosition, { passive: true });
+window.addEventListener('resize', () => {
+  sizeMobileGallery();
+  queueGalleryPosition();
+}, { passive: true });
 showPage(window.location.hash);
 
 const dialog = document.querySelector('.lightbox');
@@ -186,7 +217,8 @@ function movePhoto(direction) {
 
 photoButtons.forEach(button => button.addEventListener('click', () => {
   const group = button.closest('.series');
-  if (desktopLayout.matches && galleryMode === 'collapsed' && group && groups.indexOf(group) !== activeGroupIndex) {
+  if (group && performance.now() < suppressGalleryClickUntil) return;
+  if (galleryMode === 'collapsed' && group && groups.indexOf(group) !== activeGroupIndex) {
     selectGroup(groups.indexOf(group));
     return;
   }

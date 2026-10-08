@@ -164,8 +164,9 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 }
 
 /* Separate four-image slides on phones; the original desktop gallery below. */
-.desktop-label, .desktop-mode-controls { display: none; }
+.desktop-label { display: none; }
 .mobile-label { display: inline; }
+.gallery-mode-controls { display: contents; }
 .nav-work { display: contents; }
 .collection { padding-top: 0; }
 .exhibition { position: relative; display: flex; gap: 28px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
@@ -180,6 +181,48 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .about { padding-top: 28px; padding-bottom: 48px; }
 .contact { padding-top: 24px; }
 .footer-inner { padding-top: 32px; }
+@media (max-width: 899px) {
+  .collection {
+    --mobile-open-width: min(700px, calc(100vw - 32px));
+    --mobile-gallery-height: calc(var(--mobile-open-width) * 1.5);
+    --mobile-fold-width: 1px;
+    --mobile-fold-gap: 1px;
+  }
+  .exhibition { height: var(--mobile-gallery-height); overflow-y: hidden; transition: height 700ms ease; }
+  .exhibition .series {
+    --pane-width: var(--mobile-open-width);
+    position: relative;
+    flex: 0 0 auto;
+    width: var(--pane-width);
+    height: var(--mobile-gallery-height);
+    overflow: hidden;
+    transition: width 700ms ease, height 700ms ease;
+  }
+  .js .collection[data-mode="collapsed"] .exhibition {
+    gap: var(--mobile-fold-gap);
+    overflow-x: hidden;
+    scroll-snap-type: none;
+    touch-action: pan-y pinch-zoom;
+  }
+  .js .collection[data-mode="collapsed"] .series { --pane-width: var(--mobile-fold-width); scroll-snap-align: none; }
+  .js .collection[data-mode="collapsed"] .series.active { --pane-width: var(--mobile-open-width); }
+  .quartet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--mobile-gallery-height);
+    height: var(--pane-width);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    transform-origin: top left;
+    transform: translateX(var(--pane-width)) rotate(90deg);
+    transition: width 700ms ease, height 700ms ease, transform 700ms ease;
+  }
+  .quartet .photo-trigger { width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; }
+  .quartet .photo-trigger:focus-visible { outline-offset: -3px; z-index: 1; }
+  .quartet img { object-fit: fill; }
+  .collection[data-mode="collapsed"] .series:not(.active) .photo-failed { display: none !important; }
+  .exhibition-controls { flex-wrap: wrap; gap: 0 16px; }
+}
 @media (min-width: 900px) {
   :root { --ink: #000; --serif: Merriweather, Georgia, "Times New Roman", "Microsoft JhengHei", serif; }
   html { font-size: 75%; scroll-behavior: auto; scroll-padding: 0; }
@@ -210,13 +253,10 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   .quartet .photo-trigger { width: 100%; height: 21rem; aspect-ratio: auto; }
   .quartet img { width: 100%; height: 100%; object-fit: fill; }
   .collection[data-mode="collapsed"] .series:not(.active) .photo-failed { display: none !important; }
-  .collection[data-mode="expanded"] .exhibition { padding-right: 20.25rem; }
-  .collection[data-mode="expanded"][data-spacing="separated"] .exhibition { gap: 20rem; }
-  .collection[data-mode="expanded"][data-spacing="adjoined"] .exhibition { gap: 0; }
+  .collection[data-mode="expanded"] .exhibition { padding-right: 20.25rem; gap: 0; }
   .exhibition-toolbar { width: 74.5rem; margin: 0; display: flex; justify-content: center; }
   .collection[data-mode="expanded"] .exhibition-toolbar { justify-content: flex-start; }
   .exhibition-controls { justify-content: center; gap: 0; }
-  .desktop-mode-controls { display: contents; }
   .text-button { min-height: 0; margin: .7rem 1rem; padding: .5rem .7rem; font: 1rem/1.875rem var(--serif); }
   body[data-page="about"] .site-main, body[data-page="contact"] .site-main { padding: 6rem 10% 6rem 8%; }
   .about { width: max-content; padding: 0; grid-template-columns: 21rem minmax(15rem, 28rem); gap: 4rem; align-items: center; }
