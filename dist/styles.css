@@ -163,10 +163,10 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* Separate four-image slides on phones; the original desktop gallery below. */
+/* A vertical accordion on phones; the original desktop gallery below. */
 .desktop-label { display: none; }
 .mobile-label { display: inline; }
-.gallery-mode-controls { display: contents; }
+.gallery-mode-controls { display: none; }
 .nav-work { display: contents; }
 .collection { padding-top: 0; }
 .exhibition { position: relative; display: flex; gap: 28px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
@@ -182,39 +182,43 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .contact { padding-top: 24px; }
 .footer-inner { padding-top: 32px; }
 @media (max-width: 899px) {
+  body[data-page="works"] .site-main { max-width: none; padding-inline: 0; }
+  .exhibition-heading, .exhibition-toolbar { padding-inline: 16px; }
   .collection {
-    --mobile-open-width: min(700px, calc(100vw - 32px));
-    --mobile-gallery-height: calc(var(--mobile-open-width) * 1.5);
-    --mobile-fold-width: 1px;
+    --mobile-open-width: 100vw;
+    --mobile-open-height: calc(var(--mobile-open-width) * 1.5);
+    --mobile-gallery-height: calc(var(--mobile-open-height) + 46px);
+    --mobile-fold-height: 1px;
     --mobile-fold-gap: 1px;
   }
-  .exhibition { height: var(--mobile-gallery-height); overflow-y: hidden; transition: height 700ms ease; }
+  .exhibition { flex-direction: column; height: auto; overflow: visible; scroll-snap-type: none; transition: height 700ms ease; }
   .exhibition .series {
-    --pane-width: var(--mobile-open-width);
+    --pane-height: var(--mobile-open-height);
     position: relative;
     flex: 0 0 auto;
-    width: var(--pane-width);
-    height: var(--mobile-gallery-height);
+    width: var(--mobile-open-width);
+    height: var(--pane-height);
     overflow: hidden;
+    scroll-snap-align: none;
     transition: width 700ms ease, height 700ms ease;
   }
   .js .collection[data-mode="collapsed"] .exhibition {
+    height: var(--mobile-gallery-height);
     gap: var(--mobile-fold-gap);
-    overflow-x: hidden;
-    scroll-snap-type: none;
+    overflow: hidden;
     touch-action: pan-y pinch-zoom;
   }
-  .js .collection[data-mode="collapsed"] .series { --pane-width: var(--mobile-fold-width); scroll-snap-align: none; }
-  .js .collection[data-mode="collapsed"] .series.active { --pane-width: var(--mobile-open-width); }
+  .js .collection[data-mode="collapsed"] .series { --pane-height: var(--mobile-fold-height); }
+  .js .collection[data-mode="collapsed"] .series.active { --pane-height: var(--mobile-open-height); }
   .quartet {
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--mobile-gallery-height);
-    height: var(--pane-width);
+    width: var(--pane-height);
+    height: var(--mobile-open-width);
     grid-template-rows: repeat(2, minmax(0, 1fr));
     transform-origin: top left;
-    transform: translateX(var(--pane-width)) rotate(90deg);
+    transform: translateX(var(--mobile-open-width)) rotate(90deg);
     transition: width 700ms ease, height 700ms ease, transform 700ms ease;
   }
   .quartet .photo-trigger { width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; }
@@ -230,6 +234,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   ::selection { background: #eb6841; text-shadow: none; }
   .desktop-label { display: inline; }
   .mobile-label { display: none; }
+  .gallery-mode-controls { display: contents; }
   .masthead { position: fixed; top: 0; left: 0; width: 13rem; height: 100%; margin: 0; padding: 2rem 2rem 0; background: #fff; opacity: .8; overflow: auto; }
   .header-inner { max-width: none; }
   .identity { display: block; }

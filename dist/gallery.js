@@ -17,23 +17,26 @@ let pendingFrame = 0;
 let gallerySwipeStart = null;
 let suppressGalleryClickUntil = 0;
 
+function isGalleryFolded() {
+  return !desktopLayout.matches || galleryMode === 'collapsed';
+}
+
 function sizeMobileGallery() {
   if (desktopLayout.matches || !exhibition.clientWidth) return;
-  const foldWidth = 1;
+  const foldHeight = 1;
   const foldGap = 1;
   const width = exhibition.clientWidth;
-  const openWidth = galleryMode === 'collapsed'
-    ? Math.max(1, width - (groups.length - 1) * (foldWidth + foldGap))
-    : width;
-  collection.style.setProperty('--mobile-open-width', openWidth + 'px');
-  collection.style.setProperty('--mobile-gallery-height', openWidth * 1.5 + 'px');
-  collection.style.setProperty('--mobile-fold-width', foldWidth + 'px');
+  const openHeight = width * 1.5;
+  collection.style.setProperty('--mobile-open-width', width + 'px');
+  collection.style.setProperty('--mobile-open-height', openHeight + 'px');
+  collection.style.setProperty('--mobile-gallery-height', (openHeight + (groups.length - 1) * (foldHeight + foldGap)) + 'px');
+  collection.style.setProperty('--mobile-fold-height', foldHeight + 'px');
   collection.style.setProperty('--mobile-fold-gap', foldGap + 'px');
 }
 
 function paintGallery() {
-  const folded = galleryMode === 'collapsed';
-  collection.dataset.mode = galleryMode;
+  const folded = isGalleryFolded();
+  collection.dataset.mode = folded ? 'collapsed' : 'expanded';
   sizeMobileGallery();
   groups.forEach((group, index) => {
     group.classList.toggle('active', index === activeGroupIndex);
@@ -48,7 +51,7 @@ function paintGallery() {
   });
   modeButtons.forEach(button => {
     const action = button.dataset.galleryMode;
-    button.hidden = action === 'expand' ? galleryMode !== 'collapsed' : galleryMode !== 'expanded';
+    button.hidden = !desktopLayout.matches || (action === 'expand' ? galleryMode !== 'collapsed' : galleryMode !== 'expanded');
   });
 }
 
@@ -60,14 +63,11 @@ function selectGroup(index, scroll = true) {
   if (desktopLayout.matches) {
     const left = galleryMode === 'collapsed' ? 0 : groups[activeGroupIndex].offsetLeft - groups[0].offsetLeft;
     window.scrollTo({ left, top: window.scrollY, behavior });
-  } else {
-    const left = galleryMode === 'collapsed' ? 0 : groups[activeGroupIndex].offsetLeft - groups[0].offsetLeft;
-    exhibition.scrollTo({ left, behavior });
   }
 }
 
 function changeGalleryMode(action) {
-  if (action !== 'expand' && action !== 'collapse') return;
+  if (!desktopLayout.matches || (action !== 'expand' && action !== 'collapse')) return;
   galleryMode = action === 'expand' ? 'expanded' : 'collapsed';
   activeGroupIndex = 0;
   gallerySwipeStart = null;
@@ -77,8 +77,8 @@ function changeGalleryMode(action) {
 }
 
 function updateGalleryPosition() {
-  if (activePage !== 'works' || galleryMode === 'collapsed') return;
-  const position = desktopLayout.matches ? window.scrollX : exhibition.scrollLeft;
+  if (activePage !== 'works' || !desktopLayout.matches || galleryMode === 'collapsed') return;
+  const position = window.scrollX;
   const origin = groups[0].offsetLeft;
   let index = 0, closest = Infinity;
   groups.forEach((group, candidate) => {
@@ -133,7 +133,7 @@ modeButtons.forEach(button => button.addEventListener('click', () => {
 exhibition.addEventListener('scroll', queueGalleryPosition, { passive: true });
 window.addEventListener('scroll', queueGalleryPosition, { passive: true });
 exhibition.addEventListener('touchstart', event => {
-  gallerySwipeStart = !desktopLayout.matches && galleryMode === 'collapsed' && event.touches.length === 1
+  gallerySwipeStart = !desktopLayout.matches && event.touches.length === 1
     ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
 }, { passive: true });
 exhibition.addEventListener('touchmove', event => {
@@ -142,7 +142,7 @@ exhibition.addEventListener('touchmove', event => {
 exhibition.addEventListener('touchend', event => {
   const start = gallerySwipeStart;
   gallerySwipeStart = null;
-  if (!start || desktopLayout.matches || galleryMode !== 'collapsed' || event.changedTouches.length !== 1 || event.touches.length) return;
+  if (!start || desktopLayout.matches || event.changedTouches.length !== 1 || event.touches.length) return;
   const dx = event.changedTouches[0].clientX - start.x;
   const dy = event.changedTouches[0].clientY - start.y;
   if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
@@ -218,7 +218,7 @@ function movePhoto(direction) {
 photoButtons.forEach(button => button.addEventListener('click', () => {
   const group = button.closest('.series');
   if (group && performance.now() < suppressGalleryClickUntil) return;
-  if (galleryMode === 'collapsed' && group && groups.indexOf(group) !== activeGroupIndex) {
+  if (isGalleryFolded() && group && groups.indexOf(group) !== activeGroupIndex) {
     selectGroup(groups.indexOf(group));
     return;
   }
