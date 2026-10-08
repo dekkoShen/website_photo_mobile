@@ -1,63 +1,141 @@
-'use strict';
-
+"use strict";
+document.documentElement.classList.add('js');
 const exhibition = document.querySelector('.exhibition');
+const collection = document.querySelector('.collection');
 const groups = [...document.querySelectorAll('.exhibition > .series')];
 const groupButtons = [...document.querySelectorAll('[data-step]')];
+const modeButtons = [...document.querySelectorAll('[data-gallery-mode]')];
 const groupCount = document.querySelector('.exhibition-count');
+const pages = [...document.querySelectorAll('.site-main > section[id]')];
+const navigation = [...document.querySelectorAll('.header-nav a')];
 const desktopLayout = window.matchMedia('(min-width: 900px)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let activeGroupIndex = 0;
+let galleryMode = 'collapsed';
+let gallerySpacing = 'separated';
+let activePage = '';
 let pendingFrame = 0;
 
-function updateGroupNavigation() {
-  if (!desktopLayout.matches || !groups.length) {
-    groupButtons.forEach(button => { button.disabled = true; });
-    return;
-  }
-  const origin = groups[0].offsetLeft;
-  let closestDistance = Infinity;
+function paintGallery() {
+  const folded = desktopLayout.matches && galleryMode === 'collapsed';
+  collection.dataset.mode = galleryMode;
+  collection.dataset.spacing = gallerySpacing;
   groups.forEach((group, index) => {
-    const distance = Math.abs(group.offsetLeft - origin - exhibition.scrollLeft);
-    if (distance < closestDistance) {
-      closestDistance = distance;
-      activeGroupIndex = index;
-    }
+    group.classList.toggle('active', index === activeGroupIndex);
+    group.querySelectorAll('[data-photo]').forEach(button => {
+      button.tabIndex = folded && index !== activeGroupIndex ? -1 : 0;
+    });
   });
   groupCount.textContent = String(activeGroupIndex + 1).padStart(2, '0') + ' / ' + String(groups.length).padStart(2, '0');
   groupButtons.forEach(button => {
+    button.hidden = desktopLayout.matches && galleryMode === 'expanded';
     button.disabled = Number(button.dataset.step) < 0 ? activeGroupIndex === 0 : activeGroupIndex === groups.length - 1;
   });
+  modeButtons.forEach(button => {
+    const action = button.dataset.galleryMode;
+    button.hidden = !desktopLayout.matches ||
+      (action === 'expand' ? galleryMode !== 'collapsed' :
+       action === 'collapse' ? galleryMode !== 'expanded' :
+       action === 'adjoin' ? galleryMode !== 'expanded' || gallerySpacing === 'adjoined' :
+       galleryMode !== 'expanded' || gallerySpacing === 'separated');
+  });
 }
 
-function queueGroupNavigation() {
+function selectGroup(index, scroll = true) {
+  activeGroupIndex = Math.max(0, Math.min(groups.length - 1, index));
+  paintGallery();
+  if (!scroll || activePage !== 'works') return;
+  const behavior = reducedMotion.matches ? 'auto' : 'smooth';
+  if (desktopLayout.matches) {
+    const left = galleryMode === 'collapsed' ? 0 : groups[activeGroupIndex].offsetLeft - groups[0].offsetLeft;
+    window.scrollTo({ left, top: window.scrollY, behavior });
+  } else {
+    exhibition.scrollTo({ left: groups[activeGroupIndex].offsetLeft - groups[0].offsetLeft, behavior });
+  }
+}
+
+function changeGalleryMode(action) {
+  if (!desktopLayout.matches) return;
+  if (action === 'expand') {
+    galleryMode = 'expanded';
+    gallerySpacing = 'separated';
+  } else if (action === 'collapse') {
+    galleryMode = 'collapsed';
+    activeGroupIndex = 0;
+  } else {
+    gallerySpacing = action === 'adjoin' ? 'adjoined' : 'separated';
+  }
+  paintGallery();
+  window.scrollTo({ left: 0, top: window.scrollY, behavior: 'auto' });
+}
+
+function updateGalleryPosition() {
+  if (activePage !== 'works' || (desktopLayout.matches && galleryMode === 'collapsed')) return;
+  const position = desktopLayout.matches ? window.scrollX : exhibition.scrollLeft;
+  const origin = groups[0].offsetLeft;
+  let index = 0, closest = Infinity;
+  groups.forEach((group, candidate) => {
+    const distance = Math.abs(group.offsetLeft - origin - position);
+    if (distance < closest) { closest = distance; index = candidate; }
+  });
+  if (index !== activeGroupIndex) { activeGroupIndex = index; paintGallery(); }
+}
+function queueGalleryPosition() {
   if (pendingFrame) return;
-  pendingFrame = requestAnimationFrame(() => {
-    pendingFrame = 0;
-    updateGroupNavigation();
-  });
+  pendingFrame = requestAnimationFrame(() => { pendingFrame = 0; updateGalleryPosition(); });
 }
 
-function moveGroup(direction) {
-  if (!desktopLayout.matches || !groups.length) return;
-  const index = Math.max(0, Math.min(groups.length - 1, activeGroupIndex + direction));
-  exhibition.scrollTo({
-    left: groups[index].offsetLeft - groups[0].offsetLeft,
-    behavior: reducedMotion.matches ? 'auto' : 'smooth'
+function showPage(hash) {
+  const route = (hash || '').replace(/^#/, '');
+  const aliases = {
+    link_content_homeCover: 'home', link_content_homeCoverName: 'home',
+    link_content_work_2x2_2015: 'works', link_content_about: 'about', link_content_contact: 'contact'
+  };
+  const linkedGroup = groups.findIndex(group => group.id === route);
+  const requested = linkedGroup >= 0 ? 'works' : (aliases[route] || route);
+  const page = pages.some(section => section.id === requested) ? requested : 'home';
+  const changed = page !== activePage;
+  const overlay = document.querySelector('.lightbox');
+  if (overlay?.open) overlay.close();
+  pages.forEach(section => { section.hidden = section.id !== page; });
+  document.body.dataset.page = page;
+  activePage = page;
+  navigation.forEach(link => {
+    if (link.getAttribute('href') === '#' + page) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
   });
+  if (changed && page === 'works') { galleryMode = 'collapsed'; activeGroupIndex = 0; }
+  paintGallery();
+  window.scrollTo({ left: 0, top: 0, behavior: 'auto' });
+  if (page === 'works' && linkedGroup >= 0) selectGroup(linkedGroup);
 }
 
-groupButtons.forEach(button => button.addEventListener('click', () => moveGroup(Number(button.dataset.step))));
-exhibition.addEventListener('scroll', queueGroupNavigation, { passive: true });
+document.querySelectorAll('.header-nav a, .wordmark, .skip-link').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    const hash = link.getAttribute('href');
+    if (window.location.hash === hash) showPage(hash);
+    else window.location.hash = hash;
+  });
+});
+groupButtons.forEach(button => button.addEventListener('click', () => selectGroup(activeGroupIndex + Number(button.dataset.step))));
+modeButtons.forEach(button => button.addEventListener('click', () => changeGalleryMode(button.dataset.galleryMode)));
+exhibition.addEventListener('scroll', queueGalleryPosition, { passive: true });
+window.addEventListener('scroll', queueGalleryPosition, { passive: true });
 exhibition.addEventListener('keydown', event => {
-  if (event.target !== exhibition || !desktopLayout.matches) return;
+  if (event.target !== exhibition) return;
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
     event.preventDefault();
-    moveGroup(event.key === 'ArrowLeft' ? -1 : 1);
+    selectGroup(activeGroupIndex + (event.key === 'ArrowLeft' ? -1 : 1));
   }
 });
-desktopLayout.addEventListener('change', queueGroupNavigation);
-window.addEventListener('resize', queueGroupNavigation, { passive: true });
-updateGroupNavigation();
+desktopLayout.addEventListener('change', () => {
+  paintGallery();
+  if (activePage === 'works') requestAnimationFrame(() => selectGroup(activeGroupIndex));
+});
+window.addEventListener('hashchange', () => showPage(window.location.hash));
+window.addEventListener('resize', queueGalleryPosition, { passive: true });
+showPage(window.location.hash);
 
 const dialog = document.querySelector('.lightbox');
 const dialogImage = document.querySelector('.lightbox-image');
@@ -107,6 +185,11 @@ function movePhoto(direction) {
 }
 
 photoButtons.forEach(button => button.addEventListener('click', () => {
+  const group = button.closest('.series');
+  if (desktopLayout.matches && galleryMode === 'collapsed' && group && groups.indexOf(group) !== activeGroupIndex) {
+    selectGroup(groups.indexOf(group));
+    return;
+  }
   if (typeof dialog.showModal !== 'function') {
     window.open(button.querySelector('img').src, '_blank', 'noopener');
     return;
@@ -192,16 +275,3 @@ document.querySelectorAll('.photo-trigger img, .about-portrait, .contact-photo')
   }
 });
 
-if ('IntersectionObserver' in window) {
-  const navigation = [...document.querySelectorAll('.header-nav a, .mobile-nav a')];
-  const observedSections = [...document.querySelectorAll('main > section[id]')];
-  const observer = new IntersectionObserver(entries => {
-    const active = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-    if (!active) return;
-    navigation.forEach(link => {
-      if (link.getAttribute('href') === `#${active.target.id}`) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-  }, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
-  observedSections.forEach(section => observer.observe(section));
-}

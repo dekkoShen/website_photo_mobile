@@ -5,21 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#ffffff">
   <title>dekko Shen — 攝影作品</title>
-  <meta name="description" content="dekko Shen 的攝影作品。2x2*24.2015，二十四組作品，桌機橫向展覽、手機連續排列。">
+  <meta name="description" content="dekko Shen 的攝影作品。2x2*24.2015，二十四組作品，桌機保留原站版型、手機以四張一組橫向瀏覽。">
   <meta property="og:title" content="dekko Shen — 攝影作品">
   <meta property="og:description" content="2x2*24.2015 · 二十四組攝影作品">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261008-gallery2">
-  <script src="gallery.js?v=20261008-gallery2" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,700&amp;display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261008-gallery3">
+  <script src="gallery.js?v=20261008-gallery3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#works">跳到攝影作品</a>
-  <header class="masthead">
+  <header id="menu" class="masthead">
     <div class="header-inner">
       <div class="identity"><a class="wordmark" href="#home" aria-label="dekko Shen 首頁">dekko Shen</a><p class="greeting">你好</p></div>
       <nav class="header-nav" aria-label="主要導覽">
-        <a href="#home">首頁</a><a href="#works">作品<span class="menu-series">2x2*24.2015</span></a><a href="#about">關於</a><a href="#contact">聯絡</a>
+        <a href="#home"><span class="desktop-label">home</span><span class="mobile-label">首頁</span></a>
+        <div class="nav-work"><span class="desktop-label nav-work-label">work</span><a href="#works"><span class="desktop-label">2x2*24.2015</span><span class="mobile-label">作品</span></a></div>
+        <a href="#about"><span class="desktop-label">about</span><span class="mobile-label">關於</span></a>
+        <a href="#contact"><span class="desktop-label">contact</span><span class="mobile-label">聯絡</span></a>
       </nav>
     </div>
   </header>
@@ -36,20 +40,12 @@
       </div>
       <p class="home-caption"><span>選集 / 6 張</span><span>左右捲動</span></p>
     </section>
-    <section id="works" class="collection" aria-labelledby="works-title">
+    <section id="works" class="collection" data-mode="collapsed" data-spacing="separated" aria-labelledby="works-title">
       <div class="exhibition-heading">
         <h2 id="works-title">2x2*24.2015</h2>
         <p class="series-info">2015 / 24 組 / 96 張</p>
       </div>
-      <div class="exhibition-toolbar">
-        <div class="exhibition-controls" role="group" aria-label="作品組別導覽">
-          <button type="button" class="text-button" data-step="-1" aria-label="上一組作品" disabled>上一組</button>
-          <span class="exhibition-count" aria-live="polite">01 / 24</span>
-          <button type="button" class="text-button" data-step="1" aria-label="下一組作品">下一組</button>
-        </div>
-        <p class="exhibition-hint"><span class="desktop-hint">左右捲動 / 點圖放大</span><span class="mobile-hint">點圖放大觀看</span></p>
-      </div>
-      <div class="exhibition" role="region" aria-label="二十四組攝影作品，桌機可左右捲動" tabindex="0">
+      <div class="exhibition" role="region" aria-label="二十四組攝影作品，每組四張，可橫向瀏覽" tabindex="0">
         <section class="series" id="set-01" aria-label="第 1 組作品"><h3 class="series-heading"><span>SET 01</span><span>01 / 24</span></h3><div class="quartet"><button class="photo-trigger" type="button" data-photo="series-001" data-gallery="series" data-label="2x2*24.2015 · 第 01 組" aria-label="放大：2x2*24.2015，第 01 組第 1 張（原作 001）"><img src="https://lh5.googleusercontent.com/-3dLv4XcGFRo/VMdJFitbKZI/AAAAAAAAU-4/6fJ25vZf3pI/w504-h336-no/001.jpg" data-fallback="assets/photos/series-001.jpg" alt="2x2*24.2015，第 01 組第 1 張（原作 001）" loading="eager" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-002" data-gallery="series" data-label="2x2*24.2015 · 第 01 組" aria-label="放大：2x2*24.2015，第 01 組第 2 張（原作 002）"><img src="https://lh5.googleusercontent.com/-XVfzWsiqyEs/VMdJFZCkHjI/AAAAAAAAU-s/ZETTzCm4aYs/w504-h336-no/002.jpg" data-fallback="assets/photos/series-002.jpg" alt="2x2*24.2015，第 01 組第 2 張（原作 002）" loading="eager" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-003" data-gallery="series" data-label="2x2*24.2015 · 第 01 組" aria-label="放大：2x2*24.2015，第 01 組第 3 張（原作 003）"><img src="https://lh6.googleusercontent.com/-JnFopo_1qlc/VMdJFdbB_CI/AAAAAAAAVJs/wu6uQN3VAx8/w504-h336-no/003.jpg" data-fallback="assets/photos/series-003.jpg" alt="2x2*24.2015，第 01 組第 3 張（原作 003）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-004" data-gallery="series" data-label="2x2*24.2015 · 第 01 組" aria-label="放大：2x2*24.2015，第 01 組第 4 張（原作 004）"><img src="https://lh4.googleusercontent.com/-MWN36KYHqDk/VMdJGO2G-XI/AAAAAAAAU_A/CYM_BKGZioQ/w504-h336-no/004.jpg" data-fallback="assets/photos/series-004.jpg" alt="2x2*24.2015，第 01 組第 4 張（原作 004）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button></div></section>
         <section class="series" id="set-02" aria-label="第 2 組作品"><h3 class="series-heading"><span>SET 02</span><span>02 / 24</span></h3><div class="quartet"><button class="photo-trigger" type="button" data-photo="series-005" data-gallery="series" data-label="2x2*24.2015 · 第 02 組" aria-label="放大：2x2*24.2015，第 02 組第 1 張（原作 005）"><img src="https://lh6.googleusercontent.com/-VWfq4fHisz8/VMdJGXwl3MI/AAAAAAAAVJs/kAbS8FM10CA/w506-h336-no/005.jpg" data-fallback="assets/photos/series-005.jpg" alt="2x2*24.2015，第 02 組第 1 張（原作 005）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="506" height="336"></button><button class="photo-trigger" type="button" data-photo="series-006" data-gallery="series" data-label="2x2*24.2015 · 第 02 組" aria-label="放大：2x2*24.2015，第 02 組第 2 張（原作 006）"><img src="https://lh3.googleusercontent.com/-WasPk9D0or8/VMdJG1PEVNI/AAAAAAAAVJs/wOftLKMPAzM/w504-h336-no/006.jpg" data-fallback="assets/photos/series-006.jpg" alt="2x2*24.2015，第 02 組第 2 張（原作 006）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-007" data-gallery="series" data-label="2x2*24.2015 · 第 02 組" aria-label="放大：2x2*24.2015，第 02 組第 3 張（原作 007）"><img src="https://lh3.googleusercontent.com/-ERp45VJ48sE/VMdJHJg3F-I/AAAAAAAAVJs/TWzxHpTkv0g/w504-h336-no/007.jpg" data-fallback="assets/photos/series-007.jpg" alt="2x2*24.2015，第 02 組第 3 張（原作 007）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-008" data-gallery="series" data-label="2x2*24.2015 · 第 02 組" aria-label="放大：2x2*24.2015，第 02 組第 4 張（原作 008）"><img src="https://lh3.googleusercontent.com/-vh54yJbmBz8/VMdJHmYtLWI/AAAAAAAAVJs/8alC-XEiZTs/w506-h336-no/008.jpg" data-fallback="assets/photos/series-008.jpg" alt="2x2*24.2015，第 02 組第 4 張（原作 008）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="506" height="336"></button></div></section>
         <section class="series" id="set-03" aria-label="第 3 組作品"><h3 class="series-heading"><span>SET 03</span><span>03 / 24</span></h3><div class="quartet"><button class="photo-trigger" type="button" data-photo="series-009" data-gallery="series" data-label="2x2*24.2015 · 第 03 組" aria-label="放大：2x2*24.2015，第 03 組第 1 張（原作 009）"><img src="https://lh3.googleusercontent.com/-kLZzlVqzkmk/VMdJH36CZ-I/AAAAAAAAVJs/99B4x4HsOOM/w506-h336-no/009.jpg" data-fallback="assets/photos/series-009.jpg" alt="2x2*24.2015，第 03 組第 1 張（原作 009）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="506" height="336"></button><button class="photo-trigger" type="button" data-photo="series-010" data-gallery="series" data-label="2x2*24.2015 · 第 03 組" aria-label="放大：2x2*24.2015，第 03 組第 2 張（原作 010）"><img src="https://lh6.googleusercontent.com/-3dWmWctNETA/VMdJIGWQ-hI/AAAAAAAAU_k/soauJqzizfE/w504-h336-no/010.jpg" data-fallback="assets/photos/series-010.jpg" alt="2x2*24.2015，第 03 組第 2 張（原作 010）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-011" data-gallery="series" data-label="2x2*24.2015 · 第 03 組" aria-label="放大：2x2*24.2015，第 03 組第 3 張（原作 011）"><img src="https://lh4.googleusercontent.com/-g_0gjw8V_qc/VMdJIW4GurI/AAAAAAAAU_g/zLUGgcRVtFs/w507-h336-no/011.jpg" data-fallback="assets/photos/series-011.jpg" alt="2x2*24.2015，第 03 組第 3 張（原作 011）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="507" height="336"></button><button class="photo-trigger" type="button" data-photo="series-012" data-gallery="series" data-label="2x2*24.2015 · 第 03 組" aria-label="放大：2x2*24.2015，第 03 組第 4 張（原作 012）"><img src="https://lh3.googleusercontent.com/-mqlcaTvngIU/VMdJIulbHOI/AAAAAAAAU_4/9AnyUibMY3Y/w506-h336-no/012.jpg" data-fallback="assets/photos/series-012.jpg" alt="2x2*24.2015，第 03 組第 4 張（原作 012）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="506" height="336"></button></div></section>
@@ -75,7 +71,20 @@
         <section class="series" id="set-23" aria-label="第 23 組作品"><h3 class="series-heading"><span>SET 23</span><span>23 / 24</span></h3><div class="quartet"><button class="photo-trigger" type="button" data-photo="series-089" data-gallery="series" data-label="2x2*24.2015 · 第 23 組" aria-label="放大：2x2*24.2015，第 23 組第 1 張（原作 097）"><img src="https://lh3.googleusercontent.com/-3YiTLoJlIQ4/VMdJzW5omBI/AAAAAAAAVJE/_6Lhxvg7MoI/w504-h336-no/097.jpg" alt="2x2*24.2015，第 23 組第 1 張（原作 097）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-090" data-gallery="series" data-label="2x2*24.2015 · 第 23 組" aria-label="放大：2x2*24.2015，第 23 組第 2 張（原作 098）"><img src="https://lh4.googleusercontent.com/-leHiQRKG7Pw/VMdJz0TBkUI/AAAAAAAAVJ0/0kSQ96mK_LE/w504-h336-no/098.jpg" alt="2x2*24.2015，第 23 組第 2 張（原作 098）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-091" data-gallery="series" data-label="2x2*24.2015 · 第 23 組" aria-label="放大：2x2*24.2015，第 23 組第 3 張（原作 099）"><img src="https://lh3.googleusercontent.com/--hxHtOSg6WY/VMdJ0SQwroI/AAAAAAAAVJQ/7_-Wkx-mZ0E/w504-h336-no/099.jpg" alt="2x2*24.2015，第 23 組第 3 張（原作 099）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-092" data-gallery="series" data-label="2x2*24.2015 · 第 23 組" aria-label="放大：2x2*24.2015，第 23 組第 4 張（原作 100）"><img src="https://lh6.googleusercontent.com/-YjGXbDhQAFc/VMdJ0lVMsHI/AAAAAAAAVKE/DgY605Cp2SY/w504-h336-no/100.jpg" alt="2x2*24.2015，第 23 組第 4 張（原作 100）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button></div></section>
         <section class="series" id="set-24" aria-label="第 24 組作品"><h3 class="series-heading"><span>SET 24</span><span>24 / 24</span></h3><div class="quartet"><button class="photo-trigger" type="button" data-photo="series-093" data-gallery="series" data-label="2x2*24.2015 · 第 24 組" aria-label="放大：2x2*24.2015，第 24 組第 1 張（原作 101）"><img src="https://lh4.googleusercontent.com/-UX6o2FKkQvk/VMdJ075ns8I/AAAAAAAAVJU/H80oO32jTbU/w506-h336-no/101.jpg" alt="2x2*24.2015，第 24 組第 1 張（原作 101）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="506" height="336"></button><button class="photo-trigger" type="button" data-photo="series-094" data-gallery="series" data-label="2x2*24.2015 · 第 24 組" aria-label="放大：2x2*24.2015，第 24 組第 2 張（原作 102）"><img src="https://lh3.googleusercontent.com/-EPgG--7rsMU/VMdJ1SqRYCI/AAAAAAAAVJo/zz_dHsWFkU0/w510-h336-no/102.jpg" alt="2x2*24.2015，第 24 組第 2 張（原作 102）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="510" height="336"></button><button class="photo-trigger" type="button" data-photo="series-095" data-gallery="series" data-label="2x2*24.2015 · 第 24 組" aria-label="放大：2x2*24.2015，第 24 組第 3 張（原作 103）"><img src="https://lh5.googleusercontent.com/-bAKRR_hQZHY/VMdJ1r7rZ9I/AAAAAAAAVJg/Lk7R66I5cZ0/w504-h336-no/103.jpg" alt="2x2*24.2015，第 24 組第 3 張（原作 103）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button><button class="photo-trigger" type="button" data-photo="series-096" data-gallery="series" data-label="2x2*24.2015 · 第 24 組" aria-label="放大：2x2*24.2015，第 24 組第 4 張（原作 104）"><img src="https://lh4.googleusercontent.com/-gVbXEGF3JBo/VMdJ2rbYxaI/AAAAAAAAVJw/PZukc2j2QUk/w504-h336-no/104.jpg" alt="2x2*24.2015，第 24 組第 4 張（原作 104）" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="504" height="336"></button></div></section>
       </div>
-      <p class="back-top"><a href="#home">回到頁首</a></p>
+      <div class="exhibition-toolbar">
+        <div class="exhibition-controls" role="group" aria-label="作品組別導覽">
+          <button type="button" class="text-button" data-step="-1" aria-label="上一組作品" disabled><span class="desktop-label">/ Prev /</span><span class="mobile-label">上一組</span></button>
+          <span class="exhibition-count" aria-live="polite">01 / 24</span>
+          <button type="button" class="text-button" data-step="1" aria-label="下一組作品"><span class="desktop-label">/ Next /</span><span class="mobile-label">下一組</span></button>
+          <span class="desktop-mode-controls">
+            <button type="button" class="text-button" data-gallery-mode="expand" aria-label="展開全部作品">/ Expand /</button>
+            <button type="button" class="text-button" data-gallery-mode="collapse" aria-label="收合全部作品" hidden>/ Collapse /</button>
+            <button type="button" class="text-button" data-gallery-mode="adjoin" aria-label="接合各組作品" hidden>/ Adjoin /</button>
+            <button type="button" class="text-button" data-gallery-mode="separate" aria-label="分開各組作品" hidden>/ Separate /</button>
+          </span>
+        </div>
+        <p class="exhibition-hint">左右滑動 / 點圖放大</p>
+      </div>
     </section>
     <section id="about" class="about" aria-labelledby="about-title">
       <figure class="about-figure"><img class="about-portrait" src="https://lh6.googleusercontent.com/-d3zuH9rbIsU/VKL64j-v5LI/AAAAAAAAT-o/2t2Yylqc6S8/w336-h500-no/about_self.jpg" data-fallback="assets/photos/portrait-001.jpg" alt="dekko Shen 的原站個人照片" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="336" height="500"><figcaption>dekko Shen</figcaption></figure>
@@ -99,6 +108,6 @@
     </div>
     <div class="lightbox-foot"><div class="lightbox-controls"><button class="icon-button lightbox-prev" type="button" aria-label="上一張照片">‹</button><span class="lightbox-count" aria-live="polite"></span><button class="icon-button lightbox-next" type="button" aria-label="下一張照片">›</button></div><a class="lightbox-original" target="_blank" rel="noopener noreferrer">開啟原圖 ↗</a><span class="lightbox-hint">左右滑動或使用方向鍵切換 · Esc 關閉</span></div>
   </dialog>
-  <noscript><p class="shell">照片可直接瀏覽，桌機可左右捲動；開啟 JavaScript 後可放大照片。</p></noscript>
+  <noscript><p class="shell">照片可直接瀏覽；開啟 JavaScript 後可切換頁面、展開作品與放大照片。</p></noscript>
 </body>
 </html>
