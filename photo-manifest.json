@@ -1,0 +1,795 @@
+{
+  "source_repository": "https://github.com/dekkoShen/website_photo",
+  "source_commit": "2d517083f6e0d2e31fc18b5ccb072208ea04f879",
+  "series_title": "2x2*24.2015",
+  "group_count": 24,
+  "photos": [
+    {
+      "section": "series",
+      "position": 1,
+      "original_url": "https://lh5.googleusercontent.com/-3dLv4XcGFRo/VMdJFitbKZI/AAAAAAAAU-4/6fJ25vZf3pI/w504-h336-no/001.jpg",
+      "file": "assets/photos/series-001.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 118389
+    },
+    {
+      "section": "series",
+      "position": 2,
+      "original_url": "https://lh5.googleusercontent.com/-XVfzWsiqyEs/VMdJFZCkHjI/AAAAAAAAU-s/ZETTzCm4aYs/w504-h336-no/002.jpg",
+      "file": "assets/photos/series-002.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 190102
+    },
+    {
+      "section": "series",
+      "position": 3,
+      "original_url": "https://lh6.googleusercontent.com/-JnFopo_1qlc/VMdJFdbB_CI/AAAAAAAAVJs/wu6uQN3VAx8/w504-h336-no/003.jpg",
+      "file": "assets/photos/series-003.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 133896
+    },
+    {
+      "section": "series",
+      "position": 4,
+      "original_url": "https://lh4.googleusercontent.com/-MWN36KYHqDk/VMdJGO2G-XI/AAAAAAAAU_A/CYM_BKGZioQ/w504-h336-no/004.jpg",
+      "file": "assets/photos/series-004.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 134672
+    },
+    {
+      "section": "series",
+      "position": 5,
+      "original_url": "https://lh6.googleusercontent.com/-VWfq4fHisz8/VMdJGXwl3MI/AAAAAAAAVJs/kAbS8FM10CA/w506-h336-no/005.jpg",
+      "file": "assets/photos/series-005.jpg",
+      "width": 506,
+      "height": 336,
+      "bytes": 107699
+    },
+    {
+      "section": "series",
+      "position": 6,
+      "original_url": "https://lh3.googleusercontent.com/-WasPk9D0or8/VMdJG1PEVNI/AAAAAAAAVJs/wOftLKMPAzM/w504-h336-no/006.jpg",
+      "file": "assets/photos/series-006.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 267911
+    },
+    {
+      "section": "series",
+      "position": 7,
+      "original_url": "https://lh3.googleusercontent.com/-ERp45VJ48sE/VMdJHJg3F-I/AAAAAAAAVJs/TWzxHpTkv0g/w504-h336-no/007.jpg",
+      "file": "assets/photos/series-007.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 193234
+    },
+    {
+      "section": "series",
+      "position": 8,
+      "original_url": "https://lh3.googleusercontent.com/-vh54yJbmBz8/VMdJHmYtLWI/AAAAAAAAVJs/8alC-XEiZTs/w506-h336-no/008.jpg",
+      "file": "assets/photos/series-008.jpg",
+      "width": 506,
+      "height": 336,
+      "bytes": 129640
+    },
+    {
+      "section": "series",
+      "position": 9,
+      "original_url": "https://lh3.googleusercontent.com/-kLZzlVqzkmk/VMdJH36CZ-I/AAAAAAAAVJs/99B4x4HsOOM/w506-h336-no/009.jpg",
+      "file": "assets/photos/series-009.jpg",
+      "width": 506,
+      "height": 336,
+      "bytes": 148298
+    },
+    {
+      "section": "series",
+      "position": 10,
+      "original_url": "https://lh6.googleusercontent.com/-3dWmWctNETA/VMdJIGWQ-hI/AAAAAAAAU_k/soauJqzizfE/w504-h336-no/010.jpg",
+      "file": "assets/photos/series-010.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 116887
+    },
+    {
+      "section": "series",
+      "position": 11,
+      "original_url": "https://lh4.googleusercontent.com/-g_0gjw8V_qc/VMdJIW4GurI/AAAAAAAAU_g/zLUGgcRVtFs/w507-h336-no/011.jpg",
+      "file": "assets/photos/series-011.jpg",
+      "width": 507,
+      "height": 336,
+      "bytes": 155048
+    },
+    {
+      "section": "series",
+      "position": 12,
+      "original_url": "https://lh3.googleusercontent.com/-mqlcaTvngIU/VMdJIulbHOI/AAAAAAAAU_4/9AnyUibMY3Y/w506-h336-no/012.jpg",
+      "file": "assets/photos/series-012.jpg",
+      "width": 506,
+      "height": 336,
+      "bytes": 116650
+    },
+    {
+      "section": "series",
+      "position": 13,
+      "original_url": "https://lh5.googleusercontent.com/-E1uNVK50QyQ/VMdJI-Q63HI/AAAAAAAAVAg/CceEaBnwtf8/w504-h336-no/013.jpg",
+      "file": "assets/photos/series-013.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 123205
+    },
+    {
+      "section": "series",
+      "position": 14,
+      "original_url": "https://lh5.googleusercontent.com/-Ma0faGM7rzc/VMdJJepQMUI/AAAAAAAAU_w/D3ve5IBLPrk/w504-h336-no/014.jpg",
+      "file": "assets/photos/series-014.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 177130
+    },
+    {
+      "section": "series",
+      "position": 15,
+      "original_url": "https://lh6.googleusercontent.com/-e7FDF6vtcPA/VMdJJkk0QjI/AAAAAAAAVAE/DpD94T7Yog4/w504-h336-no/015.jpg",
+      "file": "assets/photos/series-015.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 119882
+    },
+    {
+      "section": "series",
+      "position": 16,
+      "original_url": "https://lh4.googleusercontent.com/-0ZA3_JNnelU/VMdJKIaQloI/AAAAAAAAVAA/jJpTE0eOklY/w504-h336-no/016.jpg",
+      "file": "assets/photos/series-016.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 207972
+    },
+    {
+      "section": "series",
+      "position": 17,
+      "original_url": "https://lh5.googleusercontent.com/-fscaSIEX8kE/VMdJKof_MiI/AAAAAAAAVAI/keeLkBXC6P8/w504-h336-no/017.jpg",
+      "file": "assets/photos/series-017.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 18,
+      "original_url": "https://lh3.googleusercontent.com/-NXfJ3SjVSY0/VMdJK35mGWI/AAAAAAAAVJs/Boe6MZowxMU/w504-h336-no/018.jpg",
+      "file": "assets/photos/series-018.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 19,
+      "original_url": "https://lh4.googleusercontent.com/-CJgfSxTTuXA/VMdJLSiLf9I/AAAAAAAAVAY/CvtEqhraaZA/w504-h336-no/019.jpg",
+      "file": "assets/photos/series-019.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 20,
+      "original_url": "https://lh3.googleusercontent.com/-_xJDLebbyqE/VMdJMBBLXHI/AAAAAAAAVBM/lxTkR7RPEOs/w504-h336-no/020.jpg",
+      "file": "assets/photos/series-020.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 21,
+      "original_url": "https://lh3.googleusercontent.com/-hGi9uMIv8qk/VMdJMLjBPlI/AAAAAAAAVJs/laMFDbirugY/w504-h336-no/021.jpg",
+      "file": "assets/photos/series-021.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 22,
+      "original_url": "https://lh4.googleusercontent.com/-7Jkd-x6SAMo/VMdJMl5QZ9I/AAAAAAAAVAs/DazNAki4Jws/w504-h336-no/022.jpg",
+      "file": "assets/photos/series-022.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 23,
+      "original_url": "https://lh4.googleusercontent.com/-3Jr4ehDGVGE/VMdJMy5nWiI/AAAAAAAAVA8/UumGOM-rcm0/w504-h336-no/023.jpg",
+      "file": "assets/photos/series-023.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 24,
+      "original_url": "https://lh4.googleusercontent.com/-e10NKoMqyBU/VMdJNqrqw-I/AAAAAAAAVA4/_BjBfwsGbts/w504-h336-no/024.jpg",
+      "file": "assets/photos/series-024.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 25,
+      "original_url": "https://lh4.googleusercontent.com/-roYzd0ASriA/VMdJN8yHouI/AAAAAAAAVBA/J3E8KpimJJU/w504-h336-no/025.jpg",
+      "file": "assets/photos/series-025.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 26,
+      "original_url": "https://lh6.googleusercontent.com/-DGaFAJflkZE/VMdJOqYOEII/AAAAAAAAVJs/ILRRdLozWQU/w504-h336-no/026.jpg",
+      "file": "assets/photos/series-026.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 27,
+      "original_url": "https://lh5.googleusercontent.com/-_6fJwRZV-Ks/VMdJOwFe5AI/AAAAAAAAVBQ/lemCliYZ8DE/w504-h336-no/027.jpg",
+      "file": "assets/photos/series-027.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 28,
+      "original_url": "https://lh4.googleusercontent.com/-CkJLqbV5Eh0/VMdJP7-pWTI/AAAAAAAAVJs/kqSCDIEgHh8/w519-h336-no/028.jpg",
+      "file": "assets/photos/series-028.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 29,
+      "original_url": "https://lh6.googleusercontent.com/-7KUX4fYQEfU/VMdJQIPgQ2I/AAAAAAAAVBk/IOs23zB_U20/w504-h336-no/029.jpg",
+      "file": "assets/photos/series-029.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 30,
+      "original_url": "https://lh4.googleusercontent.com/-pvzehKP3DpY/VMdJQnOIGpI/AAAAAAAAVJs/SiS0EuuwnwI/w504-h336-no/030.jpg",
+      "file": "assets/photos/series-030.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 31,
+      "original_url": "https://lh5.googleusercontent.com/-dJd_bAd9Lmw/VMdJQzce1sI/AAAAAAAAVBw/aI9kch3awVU/w504-h336-no/031.jpg",
+      "file": "assets/photos/series-031.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 32,
+      "original_url": "https://lh6.googleusercontent.com/-ZsqWwprlicA/VMdJRL9--6I/AAAAAAAAVCI/Y79C7mHhTXI/w504-h336-no/032.jpg",
+      "file": "assets/photos/series-032.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 33,
+      "original_url": "https://lh4.googleusercontent.com/-Ju4wdzZWlS4/VMdJRTFRofI/AAAAAAAAVB4/2tdA807V0oY/w504-h336-no/033.jpg",
+      "file": "assets/photos/series-033.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 34,
+      "original_url": "https://lh4.googleusercontent.com/-Y3UzUk9Y18g/VMdJSAmisPI/AAAAAAAAVCA/aJWu5Fgm5jA/w504-h336-no/034.jpg",
+      "file": "assets/photos/series-034.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 35,
+      "original_url": "https://lh3.googleusercontent.com/-ALym6XHB1fs/VMdJSkVXtdI/AAAAAAAAVDI/k1Ig1o2GAjQ/w504-h336-no/035.jpg",
+      "file": "assets/photos/series-035.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 36,
+      "original_url": "https://lh4.googleusercontent.com/-YuZBPM4OVow/VMdJTEaUygI/AAAAAAAAVCg/ebkxMW3XiOI/w504-h336-no/036.jpg",
+      "file": "assets/photos/series-036.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 37,
+      "original_url": "https://lh6.googleusercontent.com/-_x1xkhCpmCI/VMdJTYCZ-UI/AAAAAAAAVCU/roVJgTn91hE/w504-h336-no/037.jpg",
+      "file": "assets/photos/series-037.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 38,
+      "original_url": "https://lh4.googleusercontent.com/-sG6-_kHhJXE/VMdJT2VhbpI/AAAAAAAAVCc/ZJJ6weyIbGE/w506-h336-no/038.jpg",
+      "file": "assets/photos/series-038.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 39,
+      "original_url": "https://lh4.googleusercontent.com/-x2o2EUaWwNs/VMdJU839h-I/AAAAAAAAVCs/8zvAV7YGszM/w506-h336-no/039.jpg",
+      "file": "assets/photos/series-039.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 40,
+      "original_url": "https://lh4.googleusercontent.com/-DE09sP_C1zA/VMdJVoQeS8I/AAAAAAAAVCw/PQ7JBCKVkiY/w504-h336-no/040.jpg",
+      "file": "assets/photos/series-040.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 41,
+      "original_url": "https://lh4.googleusercontent.com/-iUQor8Jw3RI/VMdJVy4HGvI/AAAAAAAAVC0/0maF7QMy7Xg/w504-h336-no/041.jpg",
+      "file": "assets/photos/series-041.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 42,
+      "original_url": "https://lh5.googleusercontent.com/-Eub29ftFSbE/VMdJWVvikGI/AAAAAAAAVDM/FRj5fi0KeHA/w504-h336-no/042.jpg",
+      "file": "assets/photos/series-042.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 43,
+      "original_url": "https://lh6.googleusercontent.com/-Mr3q6sX0RTc/VMdJWqAex0I/AAAAAAAAVKQ/DanI0uJoCUI/w504-h336-no/043.jpg",
+      "file": "assets/photos/series-043.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 44,
+      "original_url": "https://lh3.googleusercontent.com/-0fK4bmXhHik/VMdJYJrVMeI/AAAAAAAAVDw/hwwFtq_tCsM/w504-h336-no/044.jpg",
+      "file": "assets/photos/series-044.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 45,
+      "original_url": "https://lh4.googleusercontent.com/-cjv1qm3g7aU/VMdJYU8poLI/AAAAAAAAVDQ/jRqsgJ9eEXE/w504-h336-no/045.jpg",
+      "file": "assets/photos/series-045.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 46,
+      "original_url": "https://lh4.googleusercontent.com/-YVLfGR9hA9g/VMdJZC7yOiI/AAAAAAAAVKQ/_lYhy-fsz4Y/w504-h336-no/046.jpg",
+      "file": "assets/photos/series-046.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 47,
+      "original_url": "https://lh5.googleusercontent.com/-Rz8h1FI8KWE/VMdJZhfd0qI/AAAAAAAAVDg/nvKeCrc2OQw/w504-h336-no/047.jpg",
+      "file": "assets/photos/series-047.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 48,
+      "original_url": "https://lh4.googleusercontent.com/-1WQ4xNhmAlg/VMdJaoYcvnI/AAAAAAAAVEM/yQQvJlwvlRY/w504-h336-no/048.jpg",
+      "file": "assets/photos/series-048.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 49,
+      "original_url": "https://lh5.googleusercontent.com/-gV0o1adxNog/VMdJhx9ykiI/AAAAAAAAVFU/CxQU1C9U-qg/w504-h336-no/061.jpg",
+      "file": "assets/photos/series-049.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 50,
+      "original_url": "https://lh4.googleusercontent.com/-pqxIsLgFNro/VMdJibTPkWI/AAAAAAAAVKQ/C3KANv-xN4M/w504-h336-no/062.jpg",
+      "file": "assets/photos/series-050.jpg",
+      "width": 504,
+      "height": 336,
+      "bytes": 226792
+    },
+    {
+      "section": "series",
+      "position": 51,
+      "original_url": "https://lh3.googleusercontent.com/-x5soyzWB0kQ/VMdJixM4LKI/AAAAAAAAVKQ/3dukgVXMGrk/w504-h336-no/063.jpg",
+      "file": "assets/photos/series-051.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 52,
+      "original_url": "https://lh5.googleusercontent.com/-OU9xSkBDm8g/VMdJjVOIF1I/AAAAAAAAVFg/kR1eGgeRjJM/w504-h336-no/064.jpg",
+      "file": "assets/photos/series-052.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 53,
+      "original_url": "https://lh3.googleusercontent.com/-i7YD6sZaTFw/VMdJjuNDg2I/AAAAAAAAVFo/Y_gVjbWK1TA/w504-h336-no/065.jpg",
+      "file": "assets/photos/series-053.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 54,
+      "original_url": "https://lh5.googleusercontent.com/-R9mjFV58Ky8/VMdJkCp5E4I/AAAAAAAAVGc/4SXSeFxlOlY/w504-h336-no/066.jpg",
+      "file": "assets/photos/series-054.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 55,
+      "original_url": "https://lh4.googleusercontent.com/-fx5ZSprr-dg/VMdJkh3u64I/AAAAAAAAVF0/ovc5kzWxcV0/w504-h336-no/067.jpg",
+      "file": "assets/photos/series-055.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 56,
+      "original_url": "https://lh4.googleusercontent.com/-yJghbjB2E_g/VMdJlDjcGtI/AAAAAAAAVF4/hXkmHzZ6AMA/w500-h336-no/068.jpg",
+      "file": "assets/photos/series-056.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 57,
+      "original_url": "https://lh3.googleusercontent.com/-xn8an9Ces14/VMdJlxIuuyI/AAAAAAAAVGE/nVJZ8bOIh9o/w504-h336-no/069.jpg",
+      "file": "assets/photos/series-057.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 58,
+      "original_url": "https://lh4.googleusercontent.com/-MDuBFxyi6M4/VMdJl-U7JhI/AAAAAAAAVGM/rPDeVomFU7o/w504-h336-no/070.jpg",
+      "file": "assets/photos/series-058.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 59,
+      "original_url": "https://lh4.googleusercontent.com/-5sFoXH-bTIM/VMdJm_tNTaI/AAAAAAAAVGQ/yZoqbsNoDUg/w504-h336-no/071.jpg",
+      "file": "assets/photos/series-059.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 60,
+      "original_url": "https://lh6.googleusercontent.com/-bi2AmKOAWaE/VMdJnaw3cqI/AAAAAAAAVKQ/NuVpENOODCY/w504-h336-no/072.jpg",
+      "file": "assets/photos/series-060.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 61,
+      "original_url": "https://lh6.googleusercontent.com/-WfTPefbO7dw/VMdJn2X3LPI/AAAAAAAAVKQ/f9V-cW5KdoM/w504-h336-no/073.jpg",
+      "file": "assets/photos/series-061.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 62,
+      "original_url": "https://lh4.googleusercontent.com/-GcnWV119vtg/VMdJosHSlKI/AAAAAAAAVKQ/Hje7KoZylMs/w506-h336-no/074.jpg",
+      "file": "assets/photos/series-062.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 63,
+      "original_url": "https://lh5.googleusercontent.com/-bVfzRMeEeSA/VMdJo99ctwI/AAAAAAAAVKQ/xOSKNs8Zk_Q/w506-h336-no/075.jpg",
+      "file": "assets/photos/series-063.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 64,
+      "original_url": "https://lh3.googleusercontent.com/-YHUA15b_C-M/VMdJpq9_FnI/AAAAAAAAVG4/ivYtBJGmn9g/w506-h336-no/076.jpg",
+      "file": "assets/photos/series-064.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 65,
+      "original_url": "https://lh6.googleusercontent.com/-BHCUBpjr9Jg/VMdJp83FQXI/AAAAAAAAVG8/-BXMGekVfTk/w504-h336-no/077.jpg",
+      "file": "assets/photos/series-065.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 66,
+      "original_url": "https://lh4.googleusercontent.com/-archGD1BHwI/VMdJqBOgq8I/AAAAAAAAVKQ/aaenvdezDQ4/w504-h336-no/078.jpg",
+      "file": "assets/photos/series-066.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 67,
+      "original_url": "https://lh5.googleusercontent.com/-M9KIs6odQeU/VMdJqaEEs8I/AAAAAAAAVKQ/4fs5eWHdDrs/w506-h336-no/079.jpg",
+      "file": "assets/photos/series-067.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 68,
+      "original_url": "https://lh6.googleusercontent.com/-TWVXuZtfYgc/VMdJq8jDDgI/AAAAAAAAVHM/vLEPk8IL2vw/w504-h336-no/080.jpg",
+      "file": "assets/photos/series-068.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 69,
+      "original_url": "https://lh3.googleusercontent.com/-tS3KpHKlrLU/VMdJzKNoWKI/AAAAAAAAVJ8/x8Y4k0shplg/w507-h336-no/081.jpg",
+      "file": "assets/photos/series-069.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 70,
+      "original_url": "https://lh3.googleusercontent.com/-Lm02NexvWWE/VMdJr7rhqsI/AAAAAAAAVKQ/iw-hE52YtyM/w499-h336-no/082.jpg",
+      "file": "assets/photos/series-070.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 71,
+      "original_url": "https://lh5.googleusercontent.com/-ax148tL1VOA/VMdJsFfb29I/AAAAAAAAVHc/E4Zv1pOGHSA/w504-h336-no/083.jpg",
+      "file": "assets/photos/series-071.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 72,
+      "original_url": "https://lh3.googleusercontent.com/-KgRh6LIYi6M/VMdJs_NsKsI/AAAAAAAAVHo/zUQTneANPgo/w504-h336-no/084.jpg",
+      "file": "assets/photos/series-072.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 73,
+      "original_url": "https://lh6.googleusercontent.com/-fKorLKRb4CU/VMdJtfV7m1I/AAAAAAAAVHs/ckrQsPNvLjs/w504-h336-no/085.jpg",
+      "file": "assets/photos/series-073.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 74,
+      "original_url": "https://lh6.googleusercontent.com/-Mzu1ypJfwRw/VMdJtmgc2gI/AAAAAAAAVKQ/saS_bKcoUyE/w504-h336-no/086.jpg",
+      "file": "assets/photos/series-074.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 75,
+      "original_url": "https://lh4.googleusercontent.com/-8j9K0bxZKnA/VMdJuJW0GuI/AAAAAAAAVIA/7HhBXXIEcfU/w504-h336-no/087.jpg",
+      "file": "assets/photos/series-075.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 76,
+      "original_url": "https://lh5.googleusercontent.com/-Ga_iFp_fK4Y/VMdJuakkXeI/AAAAAAAAVH8/z_v7mb2qlMA/w504-h336-no/088.jpg",
+      "file": "assets/photos/series-076.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 77,
+      "original_url": "https://lh4.googleusercontent.com/-zTPQCIZOcJY/VMdJvHDuRjI/AAAAAAAAVH4/nij-oxxwwGM/w504-h336-no/089.jpg",
+      "file": "assets/photos/series-077.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 78,
+      "original_url": "https://lh6.googleusercontent.com/-sFTFP-EGkzY/VMdJvn5W5nI/AAAAAAAAVIM/fPJpqNJV0Oc/w504-h336-no/090.jpg",
+      "file": "assets/photos/series-078.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 79,
+      "original_url": "https://lh5.googleusercontent.com/-mqBQxiV0wDg/VMdJwHp9-dI/AAAAAAAAVIU/80raPufCT68/w504-h336-no/091.jpg",
+      "file": "assets/photos/series-079.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 80,
+      "original_url": "https://lh3.googleusercontent.com/-y3o9gFBpJNk/VMdJwoMlGZI/AAAAAAAAVIg/StUEI5plsFY/w504-h336-no/092.jpg",
+      "file": "assets/photos/series-080.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 81,
+      "original_url": "https://lh4.googleusercontent.com/-M976kt0Vfrc/VMdJfs4qoYI/AAAAAAAAVEw/Y4662ON23cQ/w504-h336-no/057.jpg",
+      "file": "assets/photos/series-081.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 82,
+      "original_url": "https://lh3.googleusercontent.com/-ml_z1PbRP6E/VMdJgHS7lXI/AAAAAAAAVFA/9sn0K9cQMSw/w504-h336-no/058.jpg",
+      "file": "assets/photos/series-082.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 83,
+      "original_url": "https://lh3.googleusercontent.com/-hmS6Wf6Tkaw/VMdJgXcM7pI/AAAAAAAAVE4/GKWmwM6bdQI/w504-h336-no/059.jpg",
+      "file": "assets/photos/series-083.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 84,
+      "original_url": "https://lh4.googleusercontent.com/-7kg3cSK02a8/VMdJo-DjUHI/AAAAAAAAVG0/QF9DEo6SlMU/w504-h336-no/060.jpg",
+      "file": "assets/photos/series-084.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 85,
+      "original_url": "https://lh4.googleusercontent.com/-hnSn9Ax42WY/VMdJdU-bmvI/AAAAAAAAVEk/0QGSaB-uxyI/w504-h336-no/053.jpg",
+      "file": "assets/photos/series-085.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 86,
+      "original_url": "https://lh5.googleusercontent.com/-ep4BhIG5phM/VMdJdxw0d0I/AAAAAAAAVEY/cjnm1K4oFm4/w504-h336-no/054.jpg",
+      "file": "assets/photos/series-086.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 87,
+      "original_url": "https://lh5.googleusercontent.com/-YF-5H_LLqd4/VMdJeS8EgcI/AAAAAAAAVEo/7NGz0MQKlDk/w504-h336-no/055.jpg",
+      "file": "assets/photos/series-087.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 88,
+      "original_url": "https://lh4.googleusercontent.com/-jvlW9m7O-0Q/VMdJfUoZplI/AAAAAAAAVFI/zZAo0I8buKY/w504-h336-no/056.jpg",
+      "file": "assets/photos/series-088.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 89,
+      "original_url": "https://lh3.googleusercontent.com/-3YiTLoJlIQ4/VMdJzW5omBI/AAAAAAAAVJE/_6Lhxvg7MoI/w504-h336-no/097.jpg",
+      "file": "assets/photos/series-089.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 90,
+      "original_url": "https://lh4.googleusercontent.com/-leHiQRKG7Pw/VMdJz0TBkUI/AAAAAAAAVJ0/0kSQ96mK_LE/w504-h336-no/098.jpg",
+      "file": "assets/photos/series-090.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 91,
+      "original_url": "https://lh3.googleusercontent.com/--hxHtOSg6WY/VMdJ0SQwroI/AAAAAAAAVJQ/7_-Wkx-mZ0E/w504-h336-no/099.jpg",
+      "file": "assets/photos/series-091.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 92,
+      "original_url": "https://lh6.googleusercontent.com/-YjGXbDhQAFc/VMdJ0lVMsHI/AAAAAAAAVKE/DgY605Cp2SY/w504-h336-no/100.jpg",
+      "file": "assets/photos/series-092.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 93,
+      "original_url": "https://lh4.googleusercontent.com/-UX6o2FKkQvk/VMdJ075ns8I/AAAAAAAAVJU/H80oO32jTbU/w506-h336-no/101.jpg",
+      "file": "assets/photos/series-093.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 94,
+      "original_url": "https://lh3.googleusercontent.com/-EPgG--7rsMU/VMdJ1SqRYCI/AAAAAAAAVJo/zz_dHsWFkU0/w510-h336-no/102.jpg",
+      "file": "assets/photos/series-094.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 95,
+      "original_url": "https://lh5.googleusercontent.com/-bAKRR_hQZHY/VMdJ1r7rZ9I/AAAAAAAAVJg/Lk7R66I5cZ0/w504-h336-no/103.jpg",
+      "file": "assets/photos/series-095.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "series",
+      "position": 96,
+      "original_url": "https://lh4.googleusercontent.com/-gVbXEGF3JBo/VMdJ2rbYxaI/AAAAAAAAVJw/PZukc2j2QUk/w504-h336-no/104.jpg",
+      "file": "assets/photos/series-096.jpg",
+      "error": "LoginRequired: Original photo redirects to Google sign-in"
+    },
+    {
+      "section": "cover",
+      "position": 1,
+      "original_url": "https://lh3.googleusercontent.com/-_IFXspS9kPA/VMdOzuDXkcI/AAAAAAAAVKw/7c5n3YbAfbk/w427-h640-no/cover_001.jpg",
+      "file": "assets/photos/cover-001.jpg",
+      "width": 427,
+      "height": 640,
+      "bytes": 295849
+    },
+    {
+      "section": "cover",
+      "position": 2,
+      "original_url": "https://lh4.googleusercontent.com/-QaMo2DDHGfw/VKL1rGInjnI/AAAAAAAAT9w/gh1lcm0HpzA/w425-h640-no/cover_02.jpg",
+      "file": "assets/photos/cover-002.jpg",
+      "width": 425,
+      "height": 640,
+      "bytes": 124972
+    },
+    {
+      "section": "cover",
+      "position": 3,
+      "original_url": "https://lh5.googleusercontent.com/-H54PXixOuOU/VKL4220eJ1I/AAAAAAAAT-U/n8FRXp3WU3Y/w480-h640-no/cover_03_2.jpg",
+      "file": "assets/photos/cover-003.jpg",
+      "width": 480,
+      "height": 640,
+      "bytes": 258473
+    },
+    {
+      "section": "cover",
+      "position": 4,
+      "original_url": "https://lh6.googleusercontent.com/-4m9bF_fvNHE/VKL1r2F6KFI/AAAAAAAAT9w/7srQb51kZsM/w425-h640-no/cover_04.jpg",
+      "file": "assets/photos/cover-004.jpg",
+      "width": 425,
+      "height": 640,
+      "bytes": 166015
+    },
+    {
+      "section": "cover",
+      "position": 5,
+      "original_url": "https://lh4.googleusercontent.com/-UF5vOZ39UAg/VKL65MqKr8I/AAAAAAAAT-s/JKuYRFscjx0/w985-h640-no/cover_05_2.jpg",
+      "file": "assets/photos/cover-005.jpg",
+      "width": 985,
+      "height": 640,
+      "bytes": 629261
+    },
+    {
+      "section": "cover",
+      "position": 6,
+      "original_url": "https://lh6.googleusercontent.com/-GZ49mc5BeNg/VKL1sme4VfI/AAAAAAAAT9w/XOl-RmLFzv8/w1456-h640-no/cover_06.jpg",
+      "file": "assets/photos/cover-006.jpg",
+      "width": 1456,
+      "height": 640,
+      "bytes": 547913
+    },
+    {
+      "section": "portrait",
+      "position": 1,
+      "original_url": "https://lh6.googleusercontent.com/-d3zuH9rbIsU/VKL64j-v5LI/AAAAAAAAT-o/2t2Yylqc6S8/w336-h500-no/about_self.jpg",
+      "file": "assets/photos/portrait-001.jpg",
+      "width": 336,
+      "height": 500,
+      "bytes": 88140
+    },
+    {
+      "section": "portrait",
+      "position": 2,
+      "original_url": "https://lh6.googleusercontent.com/-kPbtkY2t02E/VKkyHuiGBwI/AAAAAAAAUPU/FCWIGYT9CTo/w336-h500-no/about_self_invert.jpg",
+      "file": "assets/photos/portrait-002.jpg",
+      "width": 336,
+      "height": 500,
+      "bytes": 88156
+    },
+    {
+      "section": "contact",
+      "position": 1,
+      "original_url": "https://lh5.googleusercontent.com/-2AHtgNR2qG8/VMiAa3pEmLI/AAAAAAAAVMk/h3QIhB2grpQ/w333-h500-no/contact.jpg",
+      "file": "assets/photos/contact-001.jpg",
+      "width": 333,
+      "height": 500,
+      "bytes": 83501
+    }
+  ]
+}
