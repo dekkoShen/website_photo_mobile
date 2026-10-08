@@ -1,18 +1,63 @@
 'use strict';
 
-const collection = document.querySelector('.collection');
-const layoutButtons = [...document.querySelectorAll('[data-view]')];
-const hint = document.querySelector('.view-hint');
+const exhibition = document.querySelector('.exhibition');
+const groups = [...document.querySelectorAll('.exhibition > .series')];
+const groupButtons = [...document.querySelectorAll('[data-step]')];
+const groupCount = document.querySelector('.exhibition-count');
+const desktopLayout = window.matchMedia('(min-width: 900px)');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let activeGroupIndex = 0;
+let pendingFrame = 0;
 
-function setLayout(layout) {
-  const value = layout === 'single' || (!layout && window.matchMedia('(max-width: 700px)').matches) ? 'single' : 'quartet';
-  collection.dataset.layout = value;
-  layoutButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === value)));
-  hint.textContent = value === 'single' ? '依原作順序，一張一張向下瀏覽。點圖可放大觀看。' : '保留原作四張一組的排列。點圖可放大，左右滑動切換照片。';
-  try { localStorage.setItem('dekko-photo-view', value); } catch {}
+function updateGroupNavigation() {
+  if (!desktopLayout.matches || !groups.length) {
+    groupButtons.forEach(button => { button.disabled = true; });
+    return;
+  }
+  const origin = groups[0].offsetLeft;
+  let closestDistance = Infinity;
+  groups.forEach((group, index) => {
+    const distance = Math.abs(group.offsetLeft - origin - exhibition.scrollLeft);
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      activeGroupIndex = index;
+    }
+  });
+  groupCount.textContent = String(activeGroupIndex + 1).padStart(2, '0') + ' / ' + String(groups.length).padStart(2, '0');
+  groupButtons.forEach(button => {
+    button.disabled = Number(button.dataset.step) < 0 ? activeGroupIndex === 0 : activeGroupIndex === groups.length - 1;
+  });
 }
-layoutButtons.forEach(button => button.addEventListener('click', () => setLayout(button.dataset.view)));
-try { setLayout(localStorage.getItem('dekko-photo-view')); } catch { setLayout(null); }
+
+function queueGroupNavigation() {
+  if (pendingFrame) return;
+  pendingFrame = requestAnimationFrame(() => {
+    pendingFrame = 0;
+    updateGroupNavigation();
+  });
+}
+
+function moveGroup(direction) {
+  if (!desktopLayout.matches || !groups.length) return;
+  const index = Math.max(0, Math.min(groups.length - 1, activeGroupIndex + direction));
+  exhibition.scrollTo({
+    left: groups[index].offsetLeft - groups[0].offsetLeft,
+    behavior: reducedMotion.matches ? 'auto' : 'smooth'
+  });
+}
+
+groupButtons.forEach(button => button.addEventListener('click', () => moveGroup(Number(button.dataset.step))));
+exhibition.addEventListener('scroll', queueGroupNavigation, { passive: true });
+exhibition.addEventListener('keydown', event => {
+  if (event.target !== exhibition || !desktopLayout.matches) return;
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault();
+    moveGroup(event.key === 'ArrowLeft' ? -1 : 1);
+  }
+});
+desktopLayout.addEventListener('change', queueGroupNavigation);
+window.addEventListener('resize', queueGroupNavigation, { passive: true });
+updateGroupNavigation();
 
 const dialog = document.querySelector('.lightbox');
 const dialogImage = document.querySelector('.lightbox-image');
