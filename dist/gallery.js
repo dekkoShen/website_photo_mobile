@@ -5,6 +5,7 @@ const collection = document.querySelector('.collection');
 const groups = [...document.querySelectorAll('.exhibition > .series')];
 const groupButtons = [...document.querySelectorAll('[data-step]')];
 const modeButtons = [...document.querySelectorAll('[data-gallery-mode]')];
+const photoButtons = [...document.querySelectorAll('.quartet [data-photo]')];
 const groupCount = document.querySelector('.exhibition-count');
 const pages = [...document.querySelectorAll('.site-main > section[id]')];
 const navigation = [...document.querySelectorAll('.header-nav a')];
@@ -39,8 +40,12 @@ function paintGallery() {
   sizeMobileGallery();
   groups.forEach((group, index) => {
     group.classList.toggle('active', index === activeGroupIndex);
-    group.querySelectorAll('[data-photo]').forEach(button => {
+    group.querySelectorAll('[data-photo]').forEach((button, photoIndex) => {
+      const step = desktopLayout.matches ? (photoIndex % 2 === 0 ? -1 : 1) : (photoIndex < 2 ? 1 : -1);
+      button.dataset.photoStep = String(step);
       button.tabIndex = folded && index !== activeGroupIndex ? -1 : 0;
+      button.setAttribute('aria-label', (step < 0 ? '上一組作品：' : '下一組作品：') + button.querySelector('img').alt);
+      button.setAttribute('aria-disabled', String(index + step < 0 || index + step >= groups.length));
     });
   });
   groupCount.textContent = String(activeGroupIndex + 1).padStart(2, '0') + ' / ' + String(groups.length).padStart(2, '0');
@@ -101,8 +106,6 @@ function showPage(hash) {
   const requested = linkedGroup >= 0 ? 'works' : (aliases[route] || route);
   const page = pages.some(section => section.id === requested) ? requested : 'home';
   const changed = page !== activePage;
-  const overlay = document.querySelector('.lightbox');
-  if (overlay?.open) overlay.close();
   pages.forEach(section => { section.hidden = section.id !== page; });
   document.body.dataset.page = page;
   activePage = page;
@@ -128,6 +131,19 @@ groupButtons.forEach(button => button.addEventListener('click', () => selectGrou
 modeButtons.forEach(button => button.addEventListener('click', () => {
   changeGalleryMode(button.dataset.galleryMode);
   modeButtons.find(control => !control.hidden)?.focus({ preventScroll: true });
+}));
+photoButtons.forEach(button => button.addEventListener('click', event => {
+  if (performance.now() < suppressGalleryClickUntil) return;
+  const index = groups.indexOf(button.closest('.series'));
+  if (index < 0) return;
+  const step = Number(button.dataset.photoStep);
+  const previousIndex = activeGroupIndex;
+  if (isGalleryFolded() && index !== activeGroupIndex) selectGroup(index);
+  else selectGroup(index + step);
+  if (event.detail === 0 && activeGroupIndex !== previousIndex) {
+    [...groups[activeGroupIndex].querySelectorAll('[data-photo]')]
+      .find(control => Number(control.dataset.photoStep) === step)?.focus({ preventScroll: true });
+  }
 }));
 exhibition.addEventListener('scroll', queueGalleryPosition, { passive: true });
 window.addEventListener('scroll', queueGalleryPosition, { passive: true });
@@ -167,139 +183,29 @@ window.addEventListener('resize', () => {
 }, { passive: true });
 showPage(window.location.hash);
 
-const dialog = document.querySelector('.lightbox');
-const dialogImage = document.querySelector('.lightbox-image');
-const dialogError = document.querySelector('.lightbox-error');
-const dialogLabel = document.querySelector('.lightbox-label');
-const dialogCount = document.querySelector('.lightbox-count');
-const originalLink = document.querySelector('.lightbox-original');
-const closeButton = document.querySelector('.lightbox-close');
-const previousButton = document.querySelector('.lightbox-prev');
-const nextButton = document.querySelector('.lightbox-next');
-const stage = document.querySelector('.lightbox-stage');
-const photoButtons = [...document.querySelectorAll('[data-photo]')];
-let activePhotos = [];
-let currentIndex = 0;
-let trigger = null;
-let savedScrollY = 0;
-let swipeStart = null;
-
-function renderPhoto() {
-  const button = activePhotos[currentIndex];
-  if (!button) return;
-  const image = button.querySelector('img');
-  dialogImage.hidden = false;
-  dialogError.hidden = true;
-  dialogImage.dataset.fallback = image.dataset.fallback || '';
-  dialogImage.src = image.currentSrc || image.src;
-  dialogImage.alt = image.alt;
-  originalLink.href = button.dataset.original || image.src;
-  dialogLabel.textContent = button.dataset.label;
-  dialogCount.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(activePhotos.length).padStart(2, '0')}`;
-  previousButton.disabled = currentIndex === 0;
-  nextButton.disabled = currentIndex === activePhotos.length - 1;
-  for (const neighbor of [currentIndex - 1, currentIndex + 1]) {
-    if (activePhotos[neighbor]) {
-      const preload = new Image();
-      preload.referrerPolicy = 'no-referrer';
-      preload.src = activePhotos[neighbor].querySelector('img').src;
-    }
-  }
-}
-
-function movePhoto(direction) {
-  const next = currentIndex + direction;
-  if (next < 0 || next >= activePhotos.length) return;
-  currentIndex = next;
-  renderPhoto();
-}
-
-photoButtons.forEach(button => button.addEventListener('click', () => {
-  const group = button.closest('.series');
-  if (group && performance.now() < suppressGalleryClickUntil) return;
-  if (isGalleryFolded() && group && groups.indexOf(group) !== activeGroupIndex) {
-    selectGroup(groups.indexOf(group));
-    return;
-  }
-  if (typeof dialog.showModal !== 'function') {
-    window.open(button.querySelector('img').src, '_blank', 'noopener');
-    return;
-  }
-  trigger = button;
-  activePhotos = photoButtons.filter(photo => photo.dataset.gallery === button.dataset.gallery)
-    .sort((a, b) => Number(a.dataset.photo.split('-').pop()) - Number(b.dataset.photo.split('-').pop()));
-  currentIndex = activePhotos.indexOf(button);
-  renderPhoto();
-  savedScrollY = window.scrollY;
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${savedScrollY}px`;
-  document.body.style.width = '100%';
-  dialog.showModal();
-  closeButton.focus();
-}));
-
-previousButton.addEventListener('click', () => movePhoto(-1));
-nextButton.addEventListener('click', () => movePhoto(1));
-closeButton.addEventListener('click', () => dialog.close());
-dialog.addEventListener('close', () => {
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.width = '';
-  const root = document.documentElement;
-  const priorBehavior = root.style.scrollBehavior;
-  root.style.scrollBehavior = 'auto';
-  window.scrollTo(0, savedScrollY);
-  if (trigger) trigger.focus({ preventScroll: true });
-  root.style.scrollBehavior = priorBehavior;
-  swipeStart = null;
-});
-dialog.addEventListener('keydown', event => {
-  if (event.key === 'ArrowLeft') { event.preventDefault(); movePhoto(-1); }
-  if (event.key === 'ArrowRight') { event.preventDefault(); movePhoto(1); }
-});
-stage.addEventListener('touchstart', event => {
-  swipeStart = event.touches.length === 1 ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
-}, { passive: true });
-stage.addEventListener('touchmove', event => {
-  if (event.touches.length !== 1) swipeStart = null;
-}, { passive: true });
-stage.addEventListener('touchend', event => {
-  if (!swipeStart || !event.changedTouches.length || event.touches.length) { swipeStart = null; return; }
-  const dx = event.changedTouches[0].clientX - swipeStart.x;
-  const dy = event.changedTouches[0].clientY - swipeStart.y;
-  swipeStart = null;
-  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) movePhoto(dx < 0 ? 1 : -1);
-}, { passive: true });
-stage.addEventListener('touchcancel', () => { swipeStart = null; }, { passive: true });
 function useLocalBackup(image) {
   const backup = image.dataset.fallback;
   if (!backup || image.getAttribute('src') === backup) return false;
   image.src = backup;
   return true;
 }
-dialogImage.addEventListener('error', () => {
-  if (useLocalBackup(dialogImage)) return;
-  dialogImage.hidden = true;
-  dialogError.hidden = false;
-});
 
 document.querySelectorAll('.photo-trigger img, .about-portrait, .contact-photo').forEach(image => {
-  const button = image.closest('.photo-trigger');
-  if (button) button.dataset.original = image.src;
+  const frame = image.closest('.photo-trigger');
   const handleError = () => {
-    if (useLocalBackup(image) || !button) return;
+    if (useLocalBackup(image) || !frame) return;
     image.hidden = true;
-    if (!button.querySelector('.photo-failed')) {
+    if (!frame.querySelector('.photo-failed')) {
       const message = document.createElement('span');
       message.className = 'photo-failed';
-      message.textContent = '照片暫時無法顯示，點此查看原圖';
-      button.append(message);
+      message.textContent = '照片暫時無法顯示';
+      frame.append(message);
     }
   };
   image.addEventListener('error', handleError);
   image.addEventListener('load', () => {
     image.hidden = false;
-    button?.querySelector('.photo-failed')?.remove();
+    frame?.querySelector('.photo-failed')?.remove();
   });
   if (image.complete && image.naturalWidth === 0) {
     handleError();

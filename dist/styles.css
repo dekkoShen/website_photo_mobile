@@ -26,7 +26,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .shell { width: calc(100% - 32px); margin-inline: auto; }
 .masthead { padding: 26px 20px 0; }
 .header-inner { max-width: 700px; margin-inline: auto; }
-.identity { display: flex; align-items: baseline; justify-content: space-between; }
+.identity { display: flex; align-items: baseline; justify-content: flex-start; gap: 12px; }
 .wordmark { font-size: 24px; font-weight: 700; letter-spacing: -.6px; line-height: 1.2; }
 .greeting { margin: 0; font-size: 12px; }
 .header-nav { display: flex; gap: 28px; margin-top: 12px; font: 12px/1.5 var(--sans); }
@@ -47,11 +47,9 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .photo-trigger { display: block; position: relative; padding: 0; border: 0; border-radius: 0; background: var(--paper); line-height: 0; overflow: hidden; }
 .cover .photo-trigger { height: var(--cover-height); }
 .cover img { width: auto; max-width: none; height: 100%; }
-.home-caption { display: flex; justify-content: space-between; gap: 20px; margin: 10px 0 0; color: var(--muted); font: 10px/1.5 var(--sans); }
 .collection { padding-top: 58px; }
 .exhibition-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; }
 .collection h2 { margin: 0; font: 400 clamp(27px, 6vw, 34px)/1.3 var(--serif); letter-spacing: -1px; }
-.series-info { margin: 0; color: var(--muted); font: 10px/1.8 var(--sans); letter-spacing: .2px; }
 .exhibition-toolbar { margin: 8px 0 22px; }
 .exhibition-controls, .desktop-hint { display: none; }
 .exhibition-hint { margin: 0; color: var(--muted); font: 10px/1.7 var(--sans); }
@@ -70,6 +68,9 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 }
 .quartet { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
 .quartet .photo-trigger { width: 100%; min-width: 0; aspect-ratio: 3 / 2; }
+.quartet .photo-trigger[data-photo-step="-1"] { cursor: w-resize; }
+.quartet .photo-trigger[data-photo-step="1"] { cursor: e-resize; }
+.quartet .photo-trigger[aria-disabled="true"] { cursor: default; }
 .quartet img { width: 100%; height: 100%; object-fit: contain; }
 .photo-failed { display: grid; place-items: center; height: 100%; min-height: 70px; padding: 12px; color: var(--muted); font: 11px/1.6 var(--sans); }
 .back-top { margin: 22px 0 0; text-align: right; font: 11px/1.6 var(--sans); }
@@ -77,7 +78,6 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .about { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 24px; align-items: center; padding: 76px 0; }
 .about-figure { margin: 0; }
 .about-portrait { width: 100%; max-width: 280px; height: auto; }
-.about-figure figcaption { margin-top: 8px; color: var(--muted); font: 10px/1.5 var(--sans); }
 .section-kicker { margin: 0 0 6px; color: var(--muted); font: 10px/1.5 var(--sans); letter-spacing: 1px; }
 .section-title { margin: 0 0 16px; font: 400 26px/1.3 var(--serif); }
 .self-intro { margin: 0; font: 13px/2.3 var(--sans); }
@@ -87,22 +87,6 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .contact-links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; font: 12px/1.6 var(--sans); }
 .contact-links a span:first-child { color: var(--muted); font-size: 9px; letter-spacing: .7px; }
 .contact-links a span:last-child { text-align: right; overflow-wrap: anywhere; }
-.footer-inner { display: flex; justify-content: space-between; gap: 16px; width: min(700px, calc(100% - 32px)); margin: 0 auto; padding: 0 0 max(28px, env(safe-area-inset-bottom)); color: var(--muted); font: 10px/1.6 var(--sans); }
-.lightbox { position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #111; color: white; overflow: hidden; }
-.lightbox::backdrop { background: #111; }
-.lightbox[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
-.lightbox-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: max(12px, env(safe-area-inset-top)) 16px 12px; }
-.lightbox-label { margin: 0; font: 14px/1.5 var(--serif); }
-.icon-button { display: grid; place-items: center; min-width: 44px; min-height: 44px; padding: 0; border: 0; background: transparent; color: white; font: 24px/1 var(--sans); }
-.icon-button:hover { background: #242424; }
-.lightbox-stage { display: flex; align-items: center; justify-content: center; min-height: 0; padding: 0; touch-action: pan-y pinch-zoom; }
-.lightbox-image { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; user-select: none; -webkit-user-select: none; }
-.lightbox-error { padding: 16px; font: 13px/1.7 var(--sans); color: #ccc; }
-.lightbox-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px max(16px, env(safe-area-inset-bottom)); color: #ccc; font: 11px/1.5 var(--sans); }
-.lightbox-controls { display: flex; align-items: center; gap: 4px; }
-.lightbox-count { min-width: 68px; text-align: center; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
-.lightbox-original { display: flex; align-items: center; min-height: 44px; white-space: nowrap; }
-.lightbox-hint { display: none; }
 @media (min-width: 900px) {
   :root { --sidebar-width: 188px; }
   html { scroll-padding-top: 44px; }
@@ -117,11 +101,9 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   .site-main { max-width: none; margin: 60px 0 0 var(--sidebar-width); padding: 0 40px; }
   .home, .collection, .about, .contact { scroll-margin-top: 44px; }
   .cover-strip { --cover-height: min(640px, 72vh); }
-  .home-caption { justify-content: flex-start; gap: 30px; margin-top: 14px; font-size: 11px; }
   .collection { padding-top: 100px; }
   .exhibition-heading { justify-content: flex-start; gap: 32px; }
   .collection h2 { font-size: 34px; }
-  .series-info { font-size: 11px; }
   .exhibition-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin: 12px 0 18px; }
   .exhibition-controls { display: flex; align-items: center; gap: 20px; }
   .text-button { min-height: 44px; padding: 8px 0; border: 0; background: transparent; font: 12px/1.5 var(--sans); }
@@ -141,22 +123,13 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   .contact-photo { width: 170px; }
   .contact-links a { min-height: 54px; font-size: 14px; }
   .contact-links a span:first-child { font-size: 10px; }
-  .footer-inner { width: auto; margin-left: var(--sidebar-width); padding: 0 40px 34px; font-size: 11px; }
-  .lightbox-head { padding: max(18px, env(safe-area-inset-top)) 28px 18px; }
-  .lightbox-label { font-size: 17px; }
-  .lightbox-stage { padding-inline: 28px; }
-  .lightbox-foot { padding-inline: 28px; }
-  .lightbox-hint { display: inline; font-size: 11px; }
 }
 @media (max-width: 359px) {
   .masthead { padding-inline: 16px; }
   .header-nav { gap: 24px; }
   .exhibition-heading { display: block; }
-  .series-info { margin-top: 6px; }
   .about { gap: 18px; }
   .self-intro { font-size: 12px; }
-  .lightbox-foot { padding-inline: 10px; gap: 8px; }
-  .lightbox-controls { gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -180,7 +153,6 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .exhibition-heading { margin-bottom: 24px; }
 .about { padding-top: 28px; padding-bottom: 48px; }
 .contact { padding-top: 24px; }
-.footer-inner { padding-top: 32px; }
 @media (max-width: 899px) {
   body[data-page="works"] .site-main { max-width: none; padding-inline: 0; }
   .exhibition-heading, .exhibition-toolbar { padding-inline: 16px; }
@@ -224,7 +196,6 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   .quartet img { object-fit: fill; }
   .collection[data-mode="collapsed"] .series:not(.active) .photo-failed { display: none !important; }
   .exhibition-controls { flex-wrap: wrap; gap: 0 16px; }
-  .lightbox-original { display: none; }
 }
 @media (min-width: 900px) {
   :root { --ink: #000; --serif: Merriweather, Georgia, "Times New Roman", "Microsoft JhengHei", serif; }
@@ -248,7 +219,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   .home, .collection, .about, .contact { scroll-margin-top: 0; }
   .home { width: max-content; }
   .cover-strip { --cover-height: 40rem; width: 267rem; overflow: visible; padding-right: 4rem; padding-bottom: 3rem; scrollbar-width: none; }
-  .home-caption, .exhibition-heading, .exhibition-hint, .exhibition-count, .section-kicker, .section-title, .about-figure figcaption, .footer { display: none; }
+  .exhibition-heading, .exhibition-hint, .exhibition-count, .section-kicker, .section-title { display: none; }
   .collection { width: max-content; padding: 0; }
   .exhibition { display: flex; width: max-content; gap: 0; padding-right: 10rem; overflow: visible; scroll-snap-type: none; align-items: flex-start; }
   .exhibition .series { flex: 0 0 auto; width: 63rem; padding: 0; scroll-snap-align: none; transition: width 700ms ease; }
